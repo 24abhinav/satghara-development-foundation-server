@@ -10,7 +10,7 @@ const { sendMail, contactHtml } = require("../helper");
                 subject: 'Customer Contact',
                 html: contactHtml(body)
             });
-            res.send({ ...body }).status(200);
+            res.send({ status: 200 }).status(200);
         } catch (err) {
             console.log(err);
             res.send({ status: 500 }).status(500);
