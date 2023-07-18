@@ -1,3 +1,4 @@
+const manifest = require('./manifest');
 
 (function () {
     var nodemailer = require('nodemailer');
@@ -6,15 +7,18 @@
 
     module.exports = {
         sendMail: async (mailOptions) => {
-          const { response, rejected } = await transporter.sendMail({
-            ...mailOptions, from: sftpOption.auth.user
-          });
-          if (response) {
-            Promise.resolve(true);
-          } else {
-            console.log(rejected);
-            Promise.resolve(false);
+          if (manifest.enableMail) {
+            const { response, rejected } = await transporter.sendMail({
+              ...mailOptions, from: sftpOption.auth.user
+            });
+            if (response) {
+              return Promise.resolve(true);
+            } else {
+              console.log(rejected);
+              return Promise.resolve(false);
+            }
           }
+          return Promise.resolve(true);
         },
         contactHtml: ({ name, mobile, description }) => `
           <div>

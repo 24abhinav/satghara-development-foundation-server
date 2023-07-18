@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 var cors = require('cors');
 const { addContact } = require("./Controller/Contact");
 const app = express();
+require('./Database/db');
  
 let PORT = process.env.PORT || 5000;
  

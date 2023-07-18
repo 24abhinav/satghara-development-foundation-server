@@ -1,0 +1,13 @@
+visitorscontact
+
+CREATE TABLE visitorscontact(
+    ID  SERIAL PRIMARY KEY,
+    NAME            TEXT        NOT NULL,
+    MOBILE          TEXT        NOT NULL,
+    DESCRIPTION     Text        NULL,
+    DATE            Text        NOT NULL,
+    DAY             INT         NOT NULL,
+    MONTH           Text        NOT NULL,
+    YEAR            INT         NOT NULL,
+    ACTIVE          Boolean     NOT NULL DEFAULT true
+);
