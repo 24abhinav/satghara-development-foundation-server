@@ -2,7 +2,7 @@ const express = require("express");
 require('dotenv').config();
 const bodyParser = require('body-parser');
 var cors = require('cors');
-const { addContact } = require("./Controller/Contact");
+const { addContact, getContact, deleteContact, changeContactStatus } = require("./Controller/Contact");
 const app = express();
 require('./Database/db');
  
@@ -13,6 +13,9 @@ app.use(bodyParser.json());
 app.use(cors());
  
 app.post("/contact", addContact);
+app.get("/contact", getContact);
+app.delete("/contact", deleteContact);
+app.patch("/contact", changeContactStatus);
  
 app.listen(PORT, function (error) {
     if (error) throw error;

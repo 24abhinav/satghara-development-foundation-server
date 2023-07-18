@@ -20,8 +20,8 @@
 
     const runDBQuery = async (query) => {
         try {
-            const data = await pool.query(query);
-            return { ok: true, data };
+            const { rows: response = [] } = await pool.query(query);
+            return { ok: true, response };
         } catch (err) {
             console.log('error in query', err);
             return { ok: false, err };
