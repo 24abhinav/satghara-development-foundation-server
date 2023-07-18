@@ -7,6 +7,7 @@
     
     const dbConnection = async () => {
         try {
+            console.log('start db connection');
             await pool.connect();
             console.log('connected to DB');
             isConnected = true;
