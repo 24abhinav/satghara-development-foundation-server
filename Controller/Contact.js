@@ -2,6 +2,11 @@ const { runDBQuery } = require("../Database/db");
 const { addVisitorsContactQuery, getVisitorsQuery, deleteVisitorsQuery, changeVisitorsStatusQuery } = require("../Database/query");
 const { sendMail, contactHtml } = require("../helper");
 
+const errorHandler = (err, res) => {
+    console.log('API error', err);
+    return res.status(500).send({ status: 500 });
+};
+
 (function () {
     module.exports = {
         addContact: async (req, res) => {
@@ -14,10 +19,9 @@ const { sendMail, contactHtml } = require("../helper");
                     html: contactHtml(body)
                 });
                 const status = ok ? 201 : 500;
-                res.send({ status }).status(status);
+                return res.status(status).send({ status });
             } catch (err) {
-                console.log(err);
-                res.send({ status: 500 }).status(500);
+                return errorHandler(err);
             }
         },
         getContact: async (req, res) => {
@@ -25,10 +29,9 @@ const { sendMail, contactHtml } = require("../helper");
             try {
                 const { ok, response } = await runDBQuery(getVisitorsQuery(query));
                 const status = ok ? 200 : 500;
-                res.send({ status, visitorsList: response }).status(status);
+                return res.status(status).send({ status, visitorsList: response });
             } catch (err) {
-                console.log(err);
-                res.send({ status: 500 }).status(500);
+                return errorHandler(err);
             }
         },
         deleteContact: async (req, res) => {
@@ -36,10 +39,9 @@ const { sendMail, contactHtml } = require("../helper");
             try {
                 const { ok } = await runDBQuery(deleteVisitorsQuery(query));
                 const status = ok ? 204 : 500;
-                res.send({ status }).status(status);
+                return res.status(status).send({ status });
             } catch (err) {
-                console.log(err);
-                res.send({ status: 500 }).status(500);
+                return errorHandler(err);
             }
         },
         changeContactStatus: async (req, res) => {
@@ -47,10 +49,9 @@ const { sendMail, contactHtml } = require("../helper");
             try {
                 const { ok } = await runDBQuery(changeVisitorsStatusQuery(query));
                 const status = ok ? 200 : 500;
-                res.send({ status }).status(status);
+                return res.status(status).send({ status });
             } catch (err) {
-                console.log(err);
-                res.send({ status: 500 }).status(500);
+                return errorHandler(err);
             }
         },
     };
