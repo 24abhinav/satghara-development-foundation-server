@@ -4,6 +4,7 @@ const path = require('path')
 const bodyParser = require('body-parser');
 var cors = require('cors');
 const { addContact, getContact, deleteContact, changeContactStatus } = require("./Controller/Contact");
+const { getPageMeta } = require("./Controller/General");
 const app = express();
 require('./Database/db');
  
@@ -19,8 +20,14 @@ app.post("/contact", addContact);
 app.get("/contact", getContact);
 app.delete("/contact", deleteContact);
 app.patch("/contact", changeContactStatus);
+
+app.get("/page-meta", getPageMeta);
  
 app.listen(PORT, function (error) {
     if (error) throw error;
     console.log("Server created Successfully on PORT", PORT);
+});
+
+app.on('error', err => {
+    console.log('app error', err);
 });

@@ -1,0 +1,141 @@
+{
+    "english": {
+        "header": {
+            "logo": "static/Assets/logo.png",
+            "alt": "SDF logo",
+            "heading": "Satghara Development <br /> Foundation",
+
+            "options": [
+                { "name": "Home", "url": "/" },
+                { "name": "About Us", "url": "/about-us" },
+                { "name": "Programs", "url": "/program" },
+                { "name": "Donation", "url": "/donation" }
+            ]
+        },
+        "contactUs": {
+            "heading": "Do you want to donate? or <br /> Do you have any query/concern/suggestion? <br /> Please contact us",
+            "successAlert": "We have receive your request! We will get in touch with you shortly",
+            "formFields": {
+                "name": {
+                    "label": "Name",
+                    "type": "text",
+                    "placeholder": "Enter Your Name",
+                    "required": true,
+                    "errMsg": "Please enter your name"
+                },
+                "mobile": {
+                    "label": "Mobile",
+                    "type": "number",
+                    "placeholder": "Enter Your Mobile Number",
+                    "required": true,
+                    "errMsg": "Please enter your mobile"
+                },
+                "description": {
+                    "label": "Donation / Question / Concern / Suggestion",
+                    "type": "textarea",
+                    "placeholder": "Please tell us in brief",
+                    "required": true,
+                    "errMsg": "Please tell us briefly what you want to say"
+                }
+            },
+            "submit": "Contact"
+        },
+        "overviewPage": {
+            "heading": "Quick Overview of our programs",
+            "programList": {
+                "hospital": {
+                    "imageUrl": "Assets/hospital.png",
+                    "heading": "free Hospital every sunday",
+                    "overview": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                },
+                "commonKitchen": {
+                    "upcoming": "Upcoming",
+                    "imageUrl": "Assets/kitchen.jpg",
+                    "heading": "A Nominal price Common kitchen",
+                    "overview": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                }
+            }
+        },
+        "donation": {
+            "heading": "List of donor and their donation",
+            "tableHeading": ["Name", "Amount", "Date" ],
+            "donor": [
+                { "name": "Ram", "amount": 100000, "donationDate": "17 July 2023" }
+            ],
+            "totalDonation": "Total donation till now"
+        },
+        "common": {
+            "serverError": "Due to some technical glitches we could not captured your request! please try after some time",
+            "loading": "Please wait..."
+        }
+    },
+    "hindi": {
+        "header": {
+            "logo": "static/Assets/logo.png",
+            "alt": "एसडीएफ प्रतीक चिन्ह",
+            "heading": "सतघरा विकास <br /> फाउंडेशन",
+
+            "options": [
+                { "name": "हमारे बारे में", "url": "/" },
+                { "name": "कार्यक्रम", "url": "/program" },
+                { "name": "दान", "url": "/donation" }
+            ]
+        },
+        "contactUs": {
+            "heading": "क्या आप दान करना चाहते हैं? <br /> या क्या आपका कोई प्रश्न / चिंता / सुझाव है? <br /> कृपया हमसे संपर्क करें",
+            "formFields": {
+                "name" : {
+                    "label": "नाम",
+                    "type": "text",
+                    "placeholder": "अपना नाम दर्ज करें",
+                    "required": true,
+                    "errMsg": "कृपया अपना नाम दर्ज करें"
+                },
+                "mobile": {
+                    "label": "मोबाइल",
+                    "type": "number",
+                    "placeholder": "अपना मोबाइल नंबर दर्ज करें",
+                    "required": true,
+                    "errMsg": "कृपया अपना मोबाइल दर्ज करें"
+                },
+                "description": {
+                    "label": "दान / प्रश्न / चिंता / सुझाव",
+                    "type": "textarea",
+                    "placeholder": "हमें संक्षेप में बताएं",
+                    "required": true,
+                    "errMsg": "कृपया हमें संक्षेप में बताएं कि आप क्या कहना चाहते हैं"
+                }
+            },
+            "successAlert": "हमें आपका अनुरोध प्राप्त हो गया है! हम शीघ्र ही आपसे संपर्क करेंगे",
+            "submit": "संपर्क करें"
+        },
+        "overviewPage": {
+            "heading": "हमारे कार्यक्रमों का त्वरित अवलोकन",
+            "programList": {
+                "hospital": {
+                    "imageUrl": "Assets/hospital.png",
+                    "heading": "प्रत्येक रविवार को निःशुल्क अस्पताल",
+                    "overview": "वर्ष जिसकी ज्यादा सभीकुछ मुख्यतह शीघ्र मेंभटृ पासपाई संपुर्ण सकती दर्शाता पहोचाना अंग्रेजी होने पुर्व परिवहन मुश्किले लिए। समजते सक्षम किएलोग जानकारी दस्तावेज रिती पहोच। विभाजन आंतरजाल मेमत रिती करता। रहारुप व्याख्यान प्रौध्योगिकी विवरण प्रतिबध अर्थपुर्ण भाषए विवरण पेदा आवश्यकत स्वतंत्रता आंतरकार्यक्षमता बनाने समूह पहोचने सभीकुछ यायेका भेदनक्षमता गटको तरीके"
+                },
+                "commonKitchen": {
+                    "upcoming": "आगामी",
+                    "imageUrl": "Assets/kitchen.jpg",
+                    "heading": "नाममात्र की कीमत वाली सामान्य रसोई",
+                    "overview": "वर्ष जिसकी ज्यादा सभीकुछ मुख्यतह शीघ्र मेंभटृ पासपाई संपुर्ण सकती दर्शाता पहोचाना अंग्रेजी होने पुर्व परिवहन मुश्किले लिए। समजते सक्षम किएलोग जानकारी दस्तावेज रिती पहोच। विभाजन आंतरजाल मेमत रिती करता। रहारुप व्याख्यान प्रौध्योगिकी विवरण प्रतिबध अर्थपुर्ण भाषए विवरण पेदा आवश्यकत स्वतंत्रता आंतरकार्यक्षमता बनाने समूह पहोचने सभीकुछ यायेका भेदनक्षमता गटको तरीके"
+                }
+            }
+        },
+        "donation": {
+            "heading": "दाताओं की सूची और उनका दान",
+            "tableHeading": ["नाम", "मात्रा", "तारीख" ],
+            "donor": [
+                { "name": "राम", "amount": 100000, "donationDate": "17 जुलाई 2023" }
+            ],
+            "totalDonation": "अब तक का कुल दान"
+        },
+        "common": {
+            "serverError": "कुछ तकनीकी खामियों के कारण हम आपका अनुरोध स्वीकार नहीं कर सके! कृपया कुछ देर बाद प्रयास करें",
+            "loading": "कृपया प्रतीक्षा करें..."
+        }
+    }
+}

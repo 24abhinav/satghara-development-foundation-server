@@ -16,6 +16,10 @@
         }
     };
 
+    pool.on('error', (err) => {
+        console.log('pool error', err.message);
+    });
+
     dbConnection();
 
     const runDBQuery = async (query) => {

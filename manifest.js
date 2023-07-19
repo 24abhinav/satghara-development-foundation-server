@@ -6,5 +6,6 @@ module.exports = {
           pass: process.env.sftpEmailPassword
         },
     },
-    enableMail: process.env.enableMail === 'true'
+    enableMail: process.env.enableMail === 'true',
+    apiBaseUrl: process.env.apiBaseUrl
 };
