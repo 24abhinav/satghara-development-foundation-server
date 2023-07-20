@@ -7,10 +7,13 @@
 
             "options": [
                 { "name": "Home", "url": "/" },
-                { "name": "About Us", "url": "/about-us" },
+                { "name": "Overview", "url": "/overview" },
                 { "name": "Programs", "url": "/program" },
                 { "name": "Donation", "url": "/donation" }
             ]
+        },
+        "footer": {
+            "copyright": "Satghara Development Foundation All rights reserved."
         },
         "contactUs": {
             "heading": "Do you want to donate? or <br /> Do you have any query/concern/suggestion? <br /> Please contact us",
@@ -41,7 +44,8 @@
             "submit": "Contact"
         },
         "overviewPage": {
-            "heading": "Quick Overview of our programs",
+            "QuickHeading": "Quick Overview of our programs",
+            "heading": "Overview of SDF",
             "programList": {
                 "hospital": {
                     "imageUrl": "Assets/hospital.png",
@@ -54,7 +58,22 @@
                     "heading": "A Nominal price Common kitchen",
                     "overview": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
                 }
-            }
+            },
+            "tile": {
+                "totalDonation": {
+                    "label": "Total Donation",
+                    "value": 250000
+                },
+                "totalDonor": {
+                    "label": "Total Donor",
+                    "value": 12
+                },
+                "totalProgram": {
+                    "label": "Total Program",
+                    "value": 2
+                }
+            },
+            "overviewContent": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
         },
         "donation": {
             "heading": "List of donor and their donation",
@@ -76,10 +95,14 @@
             "heading": "सतघरा विकास <br /> फाउंडेशन",
 
             "options": [
-                { "name": "हमारे बारे में", "url": "/" },
+                { "name": "मुख", "url": "/"},
+                { "name": "निरीक्षण", "url": "/overview" },
                 { "name": "कार्यक्रम", "url": "/program" },
                 { "name": "दान", "url": "/donation" }
             ]
+        },
+        "footer": {
+            "copyright": "सतघरा डेवलपमेंट फाउंडेशन सर्वाधिकार सुरक्षित।"
         },
         "contactUs": {
             "heading": "क्या आप दान करना चाहते हैं? <br /> या क्या आपका कोई प्रश्न / चिंता / सुझाव है? <br /> कृपया हमसे संपर्क करें",
@@ -110,7 +133,8 @@
             "submit": "संपर्क करें"
         },
         "overviewPage": {
-            "heading": "हमारे कार्यक्रमों का त्वरित अवलोकन",
+            "QuickHeading": "हमारे कार्यक्रमों का त्वरित अवलोकन",
+            "heading": "एसडीएफ का अवलोकन",
             "programList": {
                 "hospital": {
                     "imageUrl": "Assets/hospital.png",
@@ -123,7 +147,22 @@
                     "heading": "नाममात्र की कीमत वाली सामान्य रसोई",
                     "overview": "वर्ष जिसकी ज्यादा सभीकुछ मुख्यतह शीघ्र मेंभटृ पासपाई संपुर्ण सकती दर्शाता पहोचाना अंग्रेजी होने पुर्व परिवहन मुश्किले लिए। समजते सक्षम किएलोग जानकारी दस्तावेज रिती पहोच। विभाजन आंतरजाल मेमत रिती करता। रहारुप व्याख्यान प्रौध्योगिकी विवरण प्रतिबध अर्थपुर्ण भाषए विवरण पेदा आवश्यकत स्वतंत्रता आंतरकार्यक्षमता बनाने समूह पहोचने सभीकुछ यायेका भेदनक्षमता गटको तरीके"
                 }
-            }
+            },
+            "tile": {
+                "totalDonation": {
+                    "label": "कुल दान",
+                    "value": 250000
+                },
+                "totalDonor": {
+                    "label": "कुल दाता",
+                    "value": 12
+                },
+                "totalProgram": {
+                    "label": "कुल कार्यक्रम",
+                    "value": 2
+                }
+            },
+            "overviewContent": "वर्ष जिसकी ज्यादा सभीकुछ मुख्यतह शीघ्र मेंभटृ पासपाई संपुर्ण सकती दर्शाता पहोचाना अंग्रेजी होने पुर्व परिवहन मुश्किले लिए। समजते सक्षम किएलोग जानकारी दस्तावेज रिती पहोच। विभाजन आंतरजाल मेमत रिती करता। रहारुप व्याख्यान प्रौध्योगिकी विवरण प्रतिबध अर्थपुर्ण भाषए विवरण पेदा आवश्यकत स्वतंत्रता आंतरकार्यक्षमता बनाने समूह पहोचने सभीकुछ यायेका भेदनक्षमता गटको तरीके"
         },
         "donation": {
             "heading": "दाताओं की सूची और उनका दान",
