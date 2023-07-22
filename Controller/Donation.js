@@ -26,7 +26,7 @@ const errorHandler = (err, res) => {
             try {
                 const { ok, response } = await runDBQuery(getDonationQuery(query));
                 const status = ok ? 200 : 500;
-                return res.status(status).send({ status, donation: response });
+                return res.status(status).send({ list: response, totalDonation: 100000 });
             } catch (err) {
                 return errorHandler(err);
             }
