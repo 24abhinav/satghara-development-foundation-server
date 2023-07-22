@@ -65,6 +65,7 @@ const query = {
             WHERE id=${id};
         `;
     },
+    getDonationSumQuery: 'SELECT SUM(AMOUNT) FROM DONATION'
 };
 
 module.exports = query;

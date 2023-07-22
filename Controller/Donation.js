@@ -1,5 +1,5 @@
 const { runDBQuery } = require("../Database/db");
-const { addDonationQuery, getDonationQuery, deleteDonationQuery, updateDonationQuery } = require("../Database/query");
+const { addDonationQuery, getDonationQuery, deleteDonationQuery, updateDonationQuery, getDonationSumQuery } = require("../Database/query");
 const translate = require('translate-google')
 
 const errorHandler = (err, res) => {
@@ -24,9 +24,32 @@ const errorHandler = (err, res) => {
         getDonation: async (req, res) => {
             const { query } = req;
             try {
-                const { ok, response } = await runDBQuery(getDonationQuery(query));
-                const status = ok ? 200 : 500;
-                return res.status(status).send({ list: response, totalDonation: 100000 });
+                const promise = [
+                    runDBQuery(getDonationQuery(query)),
+                    runDBQuery(getDonationSumQuery),
+                ];
+                const promiseArray = await Promise.allSettled(promise);
+                const responseObj = {};
+                let status = true;
+                promiseArray.forEach(({ status, value }, index) => {
+                    if(status === 'fulfilled') {
+                        const { ok, response } = value;
+                        if (ok) {
+                            if (index === 0) {
+                                responseObj.list = response;
+                            } else {
+                                const [{ sum = 0 } = {}] = response;
+                                responseObj.totalDonation = Number(sum);
+                            }
+                        } else {
+                            status = false;
+                        }
+                    } else {
+                        status = false;
+                    }
+                })
+                // const { ok, response } = await runDBQuery(getDonationQuery(query));
+                return res.status(status ? 200 : 500).send({ ...responseObj });
             } catch (err) {
                 return errorHandler(err);
             }
