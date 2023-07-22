@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 var cors = require('cors');
 const { addContact, getContact, deleteContact, changeContactStatus } = require("./Controller/Contact");
 const { getPageMeta } = require("./Controller/General");
+const { addDonation, getDonation, deleteDonation, updateDonation } = require("./Controller/Donation");
 const app = express();
 require('./Database/db');
  
@@ -20,6 +21,12 @@ app.post("/contact", addContact);
 app.get("/contact", getContact);
 app.delete("/contact", deleteContact);
 app.patch("/contact", changeContactStatus);
+
+
+app.post('/donation', addDonation);
+app.get('/donation', getDonation);
+app.delete('/donation', deleteDonation);
+app.patch('/donation', updateDonation);
 
 app.get("/page-meta", getPageMeta);
  
