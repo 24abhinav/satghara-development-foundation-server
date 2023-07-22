@@ -8,7 +8,7 @@ const query = {
             VALUES ('${name}', '${mobile}', '${description}', '${date.getTime()}', '${month}', ${date.getFullYear()}, ${day});
         `;
     },
-    getVisitorsQuery: ({ name, mobile, day, month, year, active = true }) => {
+    getVisitorsQuery: ({ name, mobile, day, month, year = new Date().getFullYear, active = true }) => {
         return `
             select * from visitorscontact where
             active=${active}
