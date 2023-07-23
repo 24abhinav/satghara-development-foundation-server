@@ -84,7 +84,7 @@ const query = {
         `;
     },
     deleteOrgUserQuery: ({ email }) => {
-        return `DELETE FROM OrgUser WHERE EMAIL = ${email};`;
+        return `DELETE FROM OrgUser WHERE EMAIL = '${email}';`;
     },
     updateOrgUserQuery: ({ name, email, mobile, role, filterEmail }) => {
         return `
