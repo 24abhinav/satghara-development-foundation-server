@@ -1,11 +1,6 @@
 const { runDBQuery } = require("../Database/db");
 const { addVisitorsContactQuery, getVisitorsQuery, deleteVisitorsQuery, changeVisitorsStatusQuery } = require("../Database/query");
-const { sendMail, contactHtml } = require("../helper");
-
-const errorHandler = (err, res) => {
-    console.log('API error', err);
-    return res.status(500).send({ status: 500 });
-};
+const { errorHandler } = require("./General");
 
 (function () {
     module.exports = {
@@ -13,11 +8,6 @@ const errorHandler = (err, res) => {
             const { body } = req;
             try {
                 const { ok } = await runDBQuery(addVisitorsContactQuery(body));
-                await sendMail({
-                    to: 'abhinavanand.cse@gmail.com',
-                    subject: 'Customer Contact',
-                    html: contactHtml(body)
-                });
                 const status = ok ? 201 : 500;
                 return res.status(status).send({ status });
             } catch (err) {

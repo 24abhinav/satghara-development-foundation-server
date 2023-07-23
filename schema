@@ -1,4 +1,3 @@
-visitorscontact
 
 CREATE TABLE visitorscontact(
     ID  SERIAL PRIMARY KEY,
@@ -21,4 +20,23 @@ CREATE TABLE donation(
     DAY                 INT         NOT NULL,
     MONTH               Text        NOT NULL,
     YEAR                INT         NOT NULL
+);
+
+CREATE TABLE OrgUser(
+    ID  SERIAL PRIMARY KEY,
+    NAME                TEXT        NOT NULL,
+    EMAIL               TEXT        NOT NULL,
+    PASSWORD            TEXT        NULL,
+    DESIGNATION         TEXT        NOT NULL,
+    MOBILE              BIGINT      NOT NULL,
+    ROLE                TEXT        NULL DEFAULT 'non-admin',
+    DATE                TEXT        NOT NULL,
+    ACTIVE              Boolean     NULL DEFAULT false
+);
+
+CREATE TABLE session(
+    ID  SERIAL PRIMARY KEY,
+    sid                 TEXT        NOT NULL,
+    user                TEXT        NOT NULL,
+    DATE                TEXT        NOT NULL,
 );

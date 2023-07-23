@@ -7,5 +7,6 @@ module.exports = {
         },
     },
     enableMail: process.env.enableMail === 'true',
-    apiBaseUrl: process.env.apiBaseUrl
+    apiBaseUrl: process.env.apiBaseUrl,
+    clientUrl: process.env.clientUrl
 };

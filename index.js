@@ -6,6 +6,7 @@ var cors = require('cors');
 const { addContact, getContact, deleteContact, changeContactStatus } = require("./Controller/Contact");
 const { getPageMeta } = require("./Controller/General");
 const { addDonation, getDonation, deleteDonation, updateDonation } = require("./Controller/Donation");
+const { addAdminUser, getAdminUser, deleteAdminUser, changeAdminUser, setAdminPassword, adminSignIn, resetPassword } = require("./Controller/AdminUser");
 const app = express();
 require('./Database/db');
  
@@ -27,6 +28,15 @@ app.post('/donation', addDonation);
 app.get('/donation', getDonation);
 app.delete('/donation', deleteDonation);
 app.patch('/donation', updateDonation);
+
+
+app.post('/admin-user', addAdminUser);
+app.get('/admin-user', getAdminUser);
+app.delete('/admin-user', deleteAdminUser);
+app.patch('/admin-user', changeAdminUser);
+app.patch('/set-admin-password', setAdminPassword);
+app.post('/admin-sign-in', adminSignIn);
+app.post('/reset-password', resetPassword);
 
 app.get("/page-meta", getPageMeta);
  

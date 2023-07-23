@@ -65,7 +65,56 @@ const query = {
             WHERE id=${id};
         `;
     },
-    getDonationSumQuery: 'SELECT SUM(AMOUNT) FROM DONATION'
+    getDonationSumQuery: 'SELECT SUM(AMOUNT) FROM DONATION',
+
+    getOrgUserQuery: 'SELECT * FROM OrgUser',
+    checkOrgUserQuery: (email) => `SELECT * FROM OrgUser where email='${email}'`,
+    addOrgUserQuery: ({ name, email, mobile, role, designation }) => {
+        return `
+            INSERT INTO OrgUser (name, email, mobile, designation, role, date)
+            VALUES
+            (
+                '${name}',
+                '${email}',
+                ${mobile},
+                '${designation}',
+                ${role ? role : null},
+                '${new Date().getTime()}'
+            )
+        `;
+    },
+    deleteOrgUserQuery: ({ email }) => {
+        return `DELETE FROM OrgUser WHERE EMAIL = ${email};`;
+    },
+    updateOrgUserQuery: ({ name, email, mobile, role, filterEmail }) => {
+        return `
+            UPDATE OrgUser SET
+            name='${name}',
+            email='${email}',
+            mobile=${mobile}
+            ${role ? `,role=${role}` : ''}
+            WHERE email='${filterEmail}';
+        `;
+    },
+    setOrgPasswordQuery: ({ email, password }) => {
+        return `
+            UPDATE OrgUser SET
+            password='${password}',
+            active=${true}
+            WHERE email='${email}';
+        `;
+    },
+    addSessionQuery: (details = {}, sid) => {
+        return `
+            INSERT INTO session (sid, user, date)
+            VALUES
+            (
+                '${sid}',
+                '${JSON.stringify(details)}',
+                '${new Date().getTime()}'
+            )
+        `;
+    },
 };
 
 module.exports = query;

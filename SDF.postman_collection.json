@@ -1,0 +1,419 @@
+{
+	"info": {
+		"_postman_id": "b5d7346e-b60b-4d5e-ad36-209f8d20c989",
+		"name": "SDF",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28629662"
+	},
+	"item": [
+		{
+			"name": "Donation",
+			"item": [
+				{
+					"name": "Add Donation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ram bhajan Mishra\",\r\n    \"amount\": 5100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/donation",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"donation"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Donation List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/donation",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"donation"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "RAM",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Donation",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/donation?id=4",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"donation"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Donation",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ram bhajan Mishra\",\r\n    \"amount\": 5500\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/donation?id=4",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"donation"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin user",
+			"item": [
+				{
+					"name": "Add Admin user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Abhinav Anand\",\r\n    \"mobile\": 7003126299,\r\n    \"email\": \"pro.simplification@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/admin-user",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"admin-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get admin user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/admin-user",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"admin-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Admin user",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/admin-user?id=1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"admin-user"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update admin user",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Abhinav Anand\",\r\n    \"mobile\": 7003126299,\r\n    \"email\": \"abhinav1813@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/admin-user?id=2",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"admin-user"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set password",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "x-key",
+								"value": "3306957e3e7982eee9d2025f02c87a9d9a28e87c719fc0ea129759b8a0783f1f46cf848455eb60abffd128d3cb36b37025d691922920118e8c586f7abf9d59e04dcf457f60d444b8a9e0cf48eec7fc6dacec0c6631e5d8fa967065b7360035cc47e9d237ac98b4f997faa0d6e47bfefc2160cc70e998d035a6328f2c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\": \"Test@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/set-admin-password",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"set-admin-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Admin Sign In",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"abhinav1813@gmail.com\",\r\n    \"password\": \"test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/admin-sign-in",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"admin-sign-in"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Add contact",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Abhinav Anand\",\r\n    \"mobile\": 7003126299,\r\n    \"description\": \"donation from postman\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{api}}/contact",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"contact"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get contact",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api}}/contact?active=true",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"contact"
+					],
+					"query": [
+						{
+							"key": "mobile",
+							"value": "7889876566",
+							"disabled": true
+						},
+						{
+							"key": "day",
+							"value": "18",
+							"disabled": true
+						},
+						{
+							"key": "month",
+							"value": "july",
+							"disabled": true
+						},
+						{
+							"key": "year",
+							"value": "2023",
+							"disabled": true
+						},
+						{
+							"key": "active",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete contact",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{api}}/contact?id=5",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"contact"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update contact status",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{api}}/contact?id=5",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"contact"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Page meta",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{api}}/page-meta?language=hindi",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"page-meta"
+					],
+					"query": [
+						{
+							"key": "language",
+							"value": "hindi"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
