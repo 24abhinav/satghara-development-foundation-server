@@ -117,7 +117,7 @@
                 }
                 return next();
             } catch (err) {
-                return req.status(401).send();
+                return res.status(401).send();
             }
         }
     };

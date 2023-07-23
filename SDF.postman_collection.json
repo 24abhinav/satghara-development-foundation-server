@@ -126,7 +126,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Abhinav Anand\",\r\n    \"mobile\": 7003126299,\r\n    \"email\": \"pro.simplification@gmail.com\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Abhinav Anand\",\r\n    \"mobile\": 7003126299,\r\n    \"email\": \"pro.simplification@gmail.com\",\r\n    \"designation\": \"Sachib\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -134,12 +134,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{api}}/admin-user",
+							"raw": "{{api}}/admin/user",
 							"host": [
 								"{{api}}"
 							],
 							"path": [
-								"admin-user"
+								"admin",
+								"user"
 							]
 						}
 					},
@@ -149,14 +150,21 @@
 					"name": "Get admin user",
 					"request": {
 						"method": "GET",
-						"header": [],
+						"header": [
+							{
+								"key": "x-session-token",
+								"value": "5c785cd491fb214855712e54251aaf093f8b5f4c8e37b32587ce629fcaa7e176f8471e9bea94572be90b3cd795f629161660016ea84f13e136175ff4881e00b292ea2c9d1c5d1cde5b2ea490b7faeffc0178e46d254ec9cee268c29408a0bbc8c96c17af700ecde93279f290d23dc1c940af6cab6705bf6eb2cad81184ab8cc2fce6e33034723786e41444774920cf05444433aeced280b266cc1a3fc5cc80f4ad877117e665064a7d4b80ec703df252703dbfb8c6722a73a43d6ce6b583e8a622be9deba8f55ef22423782362ddcb0801631123ce4a8ebf45c0f7e419f8f4e5ab2772594f85f9e2c655603bee8867db5cbea7b69011a4e07bb28701142e45605d58d9772fc86966a1921204c50e5d3eec75248dc0c389776ca1c2fd890ea5e167afbea889b89818aa9af10fabfa3a06dc5b7b60faed8804231b6dc94fab03a72e5cb03022c63ececcce30221826f2a94ec71ea28f803dacb61e97a3e61d3b361dd55ff210833c7da2db97f9491cf0026b631dcae748832b25d106585a463c98d576004ff8326b721b830f22707c8b3a6c824561e6753325f137e4966e546599d4f1b5d4977cc6b5ef665102a2f5546c142ad7fda50dc2ccad8380c6585a541705afd476ddb50d9eeac68e18d8a7dc6887fa3a54c324f54c789b5260394ddf4cea6046d81a7975e956005034dfaae9049c6fd7582be9bd567262",
+								"type": "text"
+							}
+						],
 						"url": {
-							"raw": "{{api}}/admin-user",
+							"raw": "{{api}}/admin/user",
 							"host": [
 								"{{api}}"
 							],
 							"path": [
-								"admin-user"
+								"admin",
+								"user"
 							]
 						}
 					},
@@ -168,17 +176,18 @@
 						"method": "DELETE",
 						"header": [],
 						"url": {
-							"raw": "{{api}}/admin-user?id=1",
+							"raw": "{{api}}/admin/user?email=abhinav1813@gmail.com ",
 							"host": [
 								"{{api}}"
 							],
 							"path": [
-								"admin-user"
+								"admin",
+								"user"
 							],
 							"query": [
 								{
-									"key": "id",
-									"value": "1"
+									"key": "email",
+									"value": "abhinav1813@gmail.com "
 								}
 							]
 						}
@@ -192,7 +201,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Abhinav Anand\",\r\n    \"mobile\": 7003126299,\r\n    \"email\": \"abhinav1813@gmail.com\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Abhinav Anand Jha\",\r\n    \"mobile\": 7003126211,\r\n    \"email\": \"abhinav1813@gmail.com\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -200,17 +209,18 @@
 							}
 						},
 						"url": {
-							"raw": "{{api}}/admin-user?id=2",
+							"raw": "{{api}}/admin/user?email=pro.simplification@gmail.com",
 							"host": [
 								"{{api}}"
 							],
 							"path": [
-								"admin-user"
+								"admin",
+								"user"
 							],
 							"query": [
 								{
-									"key": "id",
-									"value": "2"
+									"key": "email",
+									"value": "pro.simplification@gmail.com"
 								}
 							]
 						}
@@ -224,7 +234,7 @@
 						"header": [
 							{
 								"key": "x-key",
-								"value": "3306957e3e7982eee9d2025f02c87a9d9a28e87c719fc0ea129759b8a0783f1f46cf848455eb60abffd128d3cb36b37025d691922920118e8c586f7abf9d59e04dcf457f60d444b8a9e0cf48eec7fc6dacec0c6631e5d8fa967065b7360035cc47e9d237ac98b4f997faa0d6e47bfefc2160cc70e998d035a6328f2c",
+								"value": "51630adc32507684913ecb7bc42b4d9fab4eb0101416a57115cfc39f6c56489f0e38e902abe32b7ea3f4965e4982275df964c0a6112568a644e20f68645ecebd32aedddb5a2156595e6aeb6310ddd72f7702059b58b23517942d69fb7d7d84154fbca268795e9e6e07648c0a827bfa6fa07482f234e290d54725b514",
 								"type": "text"
 							}
 						],
@@ -238,12 +248,13 @@
 							}
 						},
 						"url": {
-							"raw": "{{api}}/set-admin-password",
+							"raw": "{{api}}/admin/set-password",
 							"host": [
 								"{{api}}"
 							],
 							"path": [
-								"set-admin-password"
+								"admin",
+								"set-password"
 							]
 						}
 					},
@@ -256,7 +267,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"email\": \"abhinav1813@gmail.com\",\r\n    \"password\": \"test\"\r\n}",
+							"raw": "{\r\n    \"email\": \"pro.simplification@gmail.com\",\r\n    \"password\": \"Test@123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -264,12 +275,40 @@
 							}
 						},
 						"url": {
-							"raw": "{{api}}/admin-sign-in",
+							"raw": "{{api}}/admin/sign-in",
 							"host": [
 								"{{api}}"
 							],
 							"path": [
-								"admin-sign-in"
+								"admin",
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"pro.simplification@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/admin/reset-password",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"admin",
+								"reset-password"
 							]
 						}
 					},
@@ -278,142 +317,150 @@
 			]
 		},
 		{
-			"name": "Add contact",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Abhinav Anand\",\r\n    \"mobile\": 7003126299,\r\n    \"description\": \"donation from postman\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
+			"name": "Contact",
+			"item": [
+				{
+					"name": "Add contact",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Abhinav Anand\",\r\n    \"mobile\": 7003126299,\r\n    \"description\": \"donation from postman\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/contact",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"contact"
+							]
 						}
-					}
+					},
+					"response": []
 				},
-				"url": {
-					"raw": "{{api}}/contact",
-					"host": [
-						"{{api}}"
-					],
-					"path": [
-						"contact"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get contact",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{api}}/contact?active=true",
-					"host": [
-						"{{api}}"
-					],
-					"path": [
-						"contact"
-					],
-					"query": [
-						{
-							"key": "mobile",
-							"value": "7889876566",
-							"disabled": true
-						},
-						{
-							"key": "day",
-							"value": "18",
-							"disabled": true
-						},
-						{
-							"key": "month",
-							"value": "july",
-							"disabled": true
-						},
-						{
-							"key": "year",
-							"value": "2023",
-							"disabled": true
-						},
-						{
-							"key": "active",
-							"value": "true"
+				{
+					"name": "Get contact",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/admin/contact?active=true",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"admin",
+								"contact"
+							],
+							"query": [
+								{
+									"key": "mobile",
+									"value": "7889876566",
+									"disabled": true
+								},
+								{
+									"key": "day",
+									"value": "18",
+									"disabled": true
+								},
+								{
+									"key": "month",
+									"value": "july",
+									"disabled": true
+								},
+								{
+									"key": "year",
+									"value": "2023",
+									"disabled": true
+								},
+								{
+									"key": "active",
+									"value": "true"
+								}
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "delete contact",
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"url": {
-					"raw": "{{api}}/contact?id=5",
-					"host": [
-						"{{api}}"
-					],
-					"path": [
-						"contact"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "5"
+					},
+					"response": []
+				},
+				{
+					"name": "delete contact",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/admin/contact?id=5",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"admin",
+								"contact"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "update contact status",
-			"request": {
-				"method": "PATCH",
-				"header": [],
-				"url": {
-					"raw": "{{api}}/contact?id=5",
-					"host": [
-						"{{api}}"
-					],
-					"path": [
-						"contact"
-					],
-					"query": [
-						{
-							"key": "id",
-							"value": "5"
+					},
+					"response": []
+				},
+				{
+					"name": "update contact status",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/admin/contact?id=5",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"admin",
+								"contact"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "5"
+								}
+							]
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Page meta",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{api}}/page-meta?language=hindi",
-					"host": [
-						"{{api}}"
-					],
-					"path": [
-						"page-meta"
-					],
-					"query": [
-						{
-							"key": "language",
-							"value": "hindi"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Page meta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/page-meta?language=hindi",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"page-meta"
+							],
+							"query": [
+								{
+									"key": "language",
+									"value": "hindi"
+								}
+							]
 						}
-					]
+					},
+					"response": []
 				}
-			},
-			"response": []
+			]
 		}
 	]
 }
