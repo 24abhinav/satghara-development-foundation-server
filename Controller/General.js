@@ -46,14 +46,6 @@
             } catch (err) {
                 return { user: {}, isUserExist: false };
             }
-        },
-        addSession: async (details, sid) => {
-            try {
-                await runDBQuery(addSessionQuery(details, sid));
-                return { user: response[0] || {}, isUserExist: !!response.length };
-            } catch (err) {
-                return { user: {}, isUserExist: false };
-            }
         }
     };
 }());

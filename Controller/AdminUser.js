@@ -1,7 +1,6 @@
 const { runDBQuery } = require("../Database/db");
 const { addOrgUserQuery, getOrgUserQuery, deleteOrgUserQuery, updateOrgUserQuery, setOrgPasswordQuery } = require("../Database/query");
 const { errorHandler, sendPasswordSetLink, checkAdminDuplicateUser, decrypt, encrypt, addSession } = require("./General");
-const { nanoid } = require('nanoid');
 
 (function () {
     module.exports = {
@@ -13,8 +12,8 @@ const { nanoid } = require('nanoid');
                 if(isUserExist && savedPassword && password) {
                     const decryptedPassword = decrypt(savedPassword || '');
                     if(decryptedPassword === password) {
-                        const sid = nanoid();
-                        await addSession(user, sid);
+                        const token = encrypt(JSON.stringify({ ...user, time: new Date().getTime()}));
+                        res.set('x-session-token', token);
                         return res.status(200).send({ signedIn: true });
                     }
                 }

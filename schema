@@ -33,10 +33,3 @@ CREATE TABLE OrgUser(
     DATE                TEXT        NOT NULL,
     ACTIVE              Boolean     NULL DEFAULT false
 );
-
-CREATE TABLE session(
-    ID  SERIAL PRIMARY KEY,
-    sid                 TEXT        NOT NULL,
-    user                TEXT        NOT NULL,
-    DATE                TEXT        NOT NULL,
-);
