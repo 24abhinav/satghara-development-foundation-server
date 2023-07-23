@@ -14,29 +14,29 @@ let PORT = process.env.PORT || 5000;
  
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors({ exposedHeaders: 'X-Session-Token' }));
 
 app.use('/static', express.static(path.join(__dirname, 'public')));
  
 app.post("/contact", addContact);
-app.get("/contact", getContact);
-app.delete("/contact", deleteContact);
-app.patch("/contact", changeContactStatus);
+app.get("/admin/contact", getContact);
+app.delete("/admin/contact", deleteContact);
+app.patch("/admin/contact", changeContactStatus);
 
 
-app.post('/donation', addDonation);
 app.get('/donation', getDonation);
-app.delete('/donation', deleteDonation);
-app.patch('/donation', updateDonation);
+app.post('/admin/donation', addDonation);
+app.delete('/admin/donation', deleteDonation);
+app.patch('/admin/donation', updateDonation);
 
 
-app.post('/admin-user', addAdminUser);
-app.get('/admin-user', getAdminUser);
-app.delete('/admin-user', deleteAdminUser);
-app.patch('/admin-user', changeAdminUser);
-app.patch('/set-admin-password', setAdminPassword);
-app.post('/admin-sign-in', adminSignIn);
-app.post('/reset-password', resetPassword);
+app.post('/admin/user', addAdminUser);
+app.get('/admin/user', getAdminUser);
+app.delete('/admin/user', deleteAdminUser);
+app.patch('/admin/user', changeAdminUser);
+app.patch('/admin/set-password', setAdminPassword);
+app.post('/admin/sign-in', adminSignIn);
+app.post('/admin/reset-password', resetPassword);
 
 app.get("/page-meta", getPageMeta);
  

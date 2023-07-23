@@ -8,7 +8,6 @@
             "options": [
                 { "name": "Home", "url": "/" },
                 { "name": "Overview", "url": "/overview" },
-                { "name": "Programs", "url": "/program" },
                 { "name": "Donation", "url": "/donation" }
             ]
         },
@@ -78,10 +77,7 @@
         "donation": {
             "heading": "List of donor and their donation",
             "tableHeading": ["Name", "Amount", "Date" ],
-            "donor": [
-                { "name": "Ram", "amount": 100000, "donationDate": "17 July 2023" }
-            ],
-            "totalDonation": "Total donation till now"
+            "totalDonationLabel": "Total donation till now"
         },
         "common": {
             "serverError": "Due to some technical glitches we could not captured your request! please try after some time",
@@ -97,7 +93,6 @@
             "options": [
                 { "name": "मुख", "url": "/"},
                 { "name": "निरीक्षण", "url": "/overview" },
-                { "name": "कार्यक्रम", "url": "/program" },
                 { "name": "दान", "url": "/donation" }
             ]
         },
@@ -167,10 +162,7 @@
         "donation": {
             "heading": "दाताओं की सूची और उनका दान",
             "tableHeading": ["नाम", "मात्रा", "तारीख" ],
-            "donor": [
-                { "name": "राम", "amount": 100000, "donationDate": "17 जुलाई 2023" }
-            ],
-            "totalDonation": "अब तक का कुल दान"
+            "totalDonationLabel": "अब तक का कुल दान"
         },
         "common": {
             "serverError": "कुछ तकनीकी खामियों के कारण हम आपका अनुरोध स्वीकार नहीं कर सके! कृपया कुछ देर बाद प्रयास करें",
