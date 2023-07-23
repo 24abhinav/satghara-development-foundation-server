@@ -65,7 +65,7 @@ const query = {
             WHERE id=${id};
         `;
     },
-    getDonationSumQuery: 'SELECT SUM(AMOUNT) FROM DONATION',
+    getDonationSumQuery: 'SELECT SUM(AMOUNT), COUNT(AMOUNT) FROM DONATION',
 
     getOrgUserQuery: 'SELECT * FROM OrgUser',
     checkOrgUserQuery: (email) => `SELECT * FROM OrgUser where email='${email}'`,

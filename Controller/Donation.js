@@ -23,9 +23,10 @@ const errorHandler = (err, res) => {
         },
         getDonation: async (req, res) => {
             const { query } = req;
+            const { countOnly = 'false' } = query;
             try {
                 const promise = [
-                    runDBQuery(getDonationQuery(query)),
+                    ...(countOnly === 'true' ? [Promise.resolve({})] : [runDBQuery(getDonationQuery(query))]),
                     runDBQuery(getDonationSumQuery),
                 ];
                 const promiseArray = await Promise.allSettled(promise);
@@ -38,8 +39,9 @@ const errorHandler = (err, res) => {
                             if (index === 0) {
                                 responseObj.list = response;
                             } else {
-                                const [{ sum = 0 } = {}] = response;
+                                const [{ sum = 0, count = 0 } = {}] = response;
                                 responseObj.totalDonation = Number(sum);
+                                responseObj.totalDonationCount = Number(count);
                             }
                         } else {
                             status = false;
