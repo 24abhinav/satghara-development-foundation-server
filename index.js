@@ -34,7 +34,7 @@ app.post('/admin/user', addAdminUser);
 app.get('/admin/user', getAdminUser);
 app.delete('/admin/user', deleteAdminUser);
 app.patch('/admin/user', changeAdminUser);
-app.patch('/admin/set-password', setAdminPassword);
+app.patch('/set-password', setAdminPassword);
 app.post('/admin/sign-in', adminSignIn);
 app.post('/admin/reset-password', resetPassword);
 
