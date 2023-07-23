@@ -6,7 +6,7 @@ var cors = require('cors');
 const { addContact, getContact, deleteContact, changeContactStatus } = require("./Controller/Contact");
 const { getPageMeta } = require("./Controller/General");
 const { addDonation, getDonation, deleteDonation, updateDonation } = require("./Controller/Donation");
-const { addAdminUser, getAdminUser, deleteAdminUser, changeAdminUser, setAdminPassword, adminSignIn, resetPassword } = require("./Controller/AdminUser");
+const { addAdminUser, getAdminUser, deleteAdminUser, changeAdminUser, setAdminPassword, adminSignIn, resetPassword, checkAdminSessionMiddleware } = require("./Controller/AdminUser");
 const app = express();
 require('./Database/db');
  
@@ -17,6 +17,8 @@ app.use(bodyParser.json());
 app.use(cors({ exposedHeaders: 'X-Session-Token' }));
 
 app.use('/static', express.static(path.join(__dirname, 'public')));
+
+app.use('/admin', checkAdminSessionMiddleware);
  
 app.post("/contact", addContact);
 app.get("/admin/contact", getContact);
@@ -34,7 +36,7 @@ app.post('/admin/user', addAdminUser);
 app.get('/admin/user', getAdminUser);
 app.delete('/admin/user', deleteAdminUser);
 app.patch('/admin/user', changeAdminUser);
-app.patch('/set-password', setAdminPassword);
+app.patch('/admin/set-password', setAdminPassword);
 app.post('/admin/sign-in', adminSignIn);
 app.post('/admin/reset-password', resetPassword);
 

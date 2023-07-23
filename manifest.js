@@ -8,5 +8,6 @@ module.exports = {
     },
     enableMail: process.env.enableMail === 'true',
     apiBaseUrl: process.env.apiBaseUrl,
-    clientUrl: process.env.clientUrl
+    clientUrl: process.env.clientUrl,
+    allowedSessionTime: Number(process.env.allowedSessionTime)
 };

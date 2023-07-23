@@ -1,8 +1,10 @@
-const { runDBQuery } = require("../Database/db");
-const { addOrgUserQuery, getOrgUserQuery, deleteOrgUserQuery, updateOrgUserQuery, setOrgPasswordQuery } = require("../Database/query");
-const { errorHandler, sendPasswordSetLink, checkAdminDuplicateUser, decrypt, encrypt, addSession } = require("./General");
-
 (function () {
+    const manifest = require("../manifest");
+    const { runDBQuery } = require("../Database/db");
+    const { addOrgUserQuery, getOrgUserQuery, deleteOrgUserQuery, updateOrgUserQuery, setOrgPasswordQuery } = require("../Database/query");
+    const { errorHandler, sendPasswordSetLink, checkAdminDuplicateUser, decrypt, encrypt } = require("./General");
+
+    const { allowedSessionTime } = manifest;
     module.exports = {
         adminSignIn: async (req, res) => {
             try {
@@ -99,5 +101,24 @@ const { errorHandler, sendPasswordSetLink, checkAdminDuplicateUser, decrypt, enc
                 return errorHandler(err, res);
             }
         },
+        checkAdminSessionMiddleware: async (req, res, next) => {
+            const { headers: { 'x-session-token': token } = {} } = req;
+            try {
+                const urlToSkip = ['/sign-in', '/set-password'];
+                if(!urlToSkip.includes(req.url)) {
+                    const userDetails = JSON.parse(decrypt(token));
+                    const { time: sessionCreateTime } = userDetails;
+                    const currentTime = new Date().getTime();
+                    const diff = (currentTime - sessionCreateTime)/60000; // convert to minute
+                    if (diff > allowedSessionTime) {
+                        return res.status(401).send();
+                    }
+                    req.userDetails = { ...userDetails };
+                }
+                return next();
+            } catch (err) {
+                return req.status(401).send();
+            }
+        }
     };
 }());
