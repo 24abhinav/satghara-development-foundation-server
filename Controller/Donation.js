@@ -41,7 +41,7 @@ const errorHandler = (err, res) => {
                             } else {
                                 const [{ sum = 0, count = 0 } = {}] = response;
                                 responseObj.totalDonation = Number(sum);
-                                responseObj.totalDonationCount = Number(count);
+                                responseObj.totalDonorCount = Number(count);
                             }
                         } else {
                             status = false;
