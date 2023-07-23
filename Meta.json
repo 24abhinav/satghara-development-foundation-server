@@ -61,11 +61,11 @@
             "tile": {
                 "totalDonation": {
                     "label": "Total Donation",
-                    "value": 250000
+                    "value": 0
                 },
-                "totalDonor": {
+                "totalDonorCount": {
                     "label": "Total Donor",
-                    "value": 12
+                    "value": 0
                 },
                 "totalProgram": {
                     "label": "Total Program",
@@ -148,7 +148,7 @@
                     "label": "कुल दान",
                     "value": 250000
                 },
-                "totalDonor": {
+                "totalDonorCount": {
                     "label": "कुल दाता",
                     "value": 12
                 },
