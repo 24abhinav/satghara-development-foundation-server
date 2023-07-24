@@ -21,7 +21,7 @@ app.use('/static', express.static(path.join(__dirname, 'public')));
 app.use('/admin', checkAdminSessionMiddleware);
  
 app.post("/contact", addContact);
-app.get("/admin/contact", getContact);
+app.get("/contact", getContact);
 app.delete("/admin/contact", deleteContact);
 app.patch("/admin/contact", changeContactStatus);
 
