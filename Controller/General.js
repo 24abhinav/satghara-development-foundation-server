@@ -11,9 +11,13 @@
 
     module.exports = {
         getPageMeta: async (req, res) => {
-            const { query: { language = '' } } = req;
+            const { query: { language = '', fullResponse = '' } } = req;
             const lng = ['hindi', 'english'].includes(language) ? language : 'english';
-            return res.status(200).send({ ...Meta[lng], selectedLanguage: language, apiBaseUrl: manifest.apiBaseUrl });
+            return res.status(200).send({
+                selectedLanguage: language,
+                ...(fullResponse ? { fullResponse: { ...Meta } } : { ...Meta[lng] }),
+                apiBaseUrl: manifest.apiBaseUrl
+            });
         },
         errorHandler: (err, res) => {
             console.log('API error', err);
@@ -45,6 +49,14 @@
                 return { user: response[0] || {}, isUserExist: !!response.length };
             } catch (err) {
                 return { user: {}, isUserExist: false };
+            }
+        },
+        isJasonValid: json => {
+            try {
+                JSON.parse(json);
+                return true;
+            } catch (err) {
+                return false;
             }
         }
     };

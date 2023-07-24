@@ -116,6 +116,8 @@ const query = {
             )
         `;
     },
+    getMetaQuery: ({ id = 1 } = {}) => `SELECT DATA FROM META WHERE ID=${id}`,
+    updateMetaQuery: ({ id = 1, data } = {}) => `UPDATE META SET DATA='${data}' WHERE ID=${id}`,
 };
 
 module.exports = query;

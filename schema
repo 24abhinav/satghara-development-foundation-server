@@ -33,3 +33,8 @@ CREATE TABLE OrgUser(
     DATE                TEXT        NOT NULL,
     ACTIVE              Boolean     NULL DEFAULT false
 );
+
+CREATE TABLE META (
+    ID  SERIAL PRIMARY KEY,
+    META jsonb NOT NULL
+);

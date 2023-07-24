@@ -7,6 +7,7 @@ const { addContact, getContact, deleteContact, changeContactStatus } = require("
 const { getPageMeta } = require("./Controller/General");
 const { addDonation, getDonation, deleteDonation, updateDonation } = require("./Controller/Donation");
 const { addAdminUser, getAdminUser, deleteAdminUser, changeAdminUser, setAdminPassword, adminSignIn, resetPassword, checkAdminSessionMiddleware } = require("./Controller/AdminUser");
+const { getMetaDetails, updateMetaDetails } = require("./Controller/Meta");
 const app = express();
 require('./Database/db');
  
@@ -40,7 +41,8 @@ app.patch('/admin/set-password', setAdminPassword);
 app.post('/admin/sign-in', adminSignIn);
 app.post('/admin/reset-password', resetPassword);
 
-app.get("/page-meta", getPageMeta);
+app.patch("/admin/page-meta", updateMetaDetails);
+app.get("/page-meta", getMetaDetails);
  
 app.listen(PORT, function (error) {
     if (error) throw error;
