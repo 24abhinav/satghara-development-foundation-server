@@ -36,7 +36,7 @@
         },
         sendPasswordSetLink: async ({ email, firstTimeUser = false }) => {
             const encryptedString = cryptr.encrypt(email);
-            const link = `${manifest.clientUrl}/sdfAdmin/create-password/${encryptedString}`;
+            const link = `${manifest.clientUrl}/sdf-admin/create-password/${encryptedString}`;
             await sendMail({
                 to: email,
                 subject: firstTimeUser ? 'User created' : 'Reset your password',
