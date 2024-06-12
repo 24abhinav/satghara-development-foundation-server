@@ -117,6 +117,7 @@ const query = {
         `;
     },
     getMetaQuery: (status = true) => `SELECT * FROM META WHERE active=${status}`,
+    getAllMetaQuery: () => `SELECT * FROM META`,
     getActiveMetaId: () => `SELECT id FROM META WHERE active=true`,
     changeMetaStatus: ({ id, status }) => `UPDATE META SET active=${status} where id=${id}`,
     addMetaQuery: ({ encodedEnglish, encodedHindi } = {}) => `INSERT INTO META (english, hindi) VALUES ('${encodedEnglish}', '${encodedHindi}')`,

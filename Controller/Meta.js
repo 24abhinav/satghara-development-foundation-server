@@ -1,7 +1,7 @@
 
 (function () {
     const { runDBQuery } = require("../Database/db");
-    const { getMetaQuery, getActiveMetaId, addMetaQuery, changeMetaStatus } = require("../Database/query");
+    const { getMetaQuery, addMetaQuery, changeMetaStatus, getAllMetaQuery } = require("../Database/query");
     const manifest = require("../manifest");
     const { errorHandler, isJasonValid } = require("./General");
 
@@ -22,8 +22,6 @@
             try {
                 const { query: { language = '', fullResponse = '' } } = req;
                 const { ok, response: [pageMeta = {}] = [] } = await runDBQuery(getMetaQuery());
-                let english = null;
-                let hindi = null;
                 const response = {
                     ...pageMeta,
                     english: null,
@@ -45,5 +43,20 @@
                 return errorHandler(err, res);
             }
         },
+        getAllMeta: async (req, res) => {
+            const { ok, response = [] } = await runDBQuery(getAllMetaQuery());
+            const resp = response.map(el => {
+                const { english, hindi } = el;
+                const meta = { ...el };
+                try {
+                    meta.english = JSON.parse(english);
+                    meta.hindi = JSON.parse(hindi);
+                } catch (e) {
+                    console.log('Error while parsing', e);
+                }
+                return meta;
+            });
+            return res.status(ok ? 200 : 500).send(resp);
+        }
     };
 }());
