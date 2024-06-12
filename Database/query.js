@@ -116,8 +116,10 @@ const query = {
             )
         `;
     },
-    getMetaQuery: ({ id = 1 } = {}) => `SELECT DATA FROM META WHERE ID=${id}`,
-    updateMetaQuery: ({ id = 1, data } = {}) => `UPDATE META SET DATA='${data}' WHERE ID=${id}`,
+    getMetaQuery: (status = true) => `SELECT * FROM META WHERE active=${status}`,
+    getActiveMetaId: () => `SELECT id FROM META WHERE active=true`,
+    changeMetaStatus: ({ id, status }) => `UPDATE META SET active=${status} where id=${id}`,
+    addMetaQuery: ({ encodedEnglish, encodedHindi } = {}) => `INSERT INTO META (english, hindi) VALUES ('${encodedEnglish}', '${encodedHindi}')`,
 };
 
 module.exports = query;

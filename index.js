@@ -7,7 +7,7 @@ const { addContact, getContact, deleteContact, changeContactStatus } = require("
 const { getPageMeta } = require("./Controller/General");
 const { addDonation, getDonation, deleteDonation, updateDonation } = require("./Controller/Donation");
 const { addAdminUser, getAdminUser, deleteAdminUser, changeAdminUser, setAdminPassword, adminSignIn, resetPassword, checkAdminSessionMiddleware } = require("./Controller/AdminUser");
-const { getMetaDetails, updateMetaDetails } = require("./Controller/Meta");
+const { getMetaDetails, updateMetaStatus, addNewMeta } = require("./Controller/Meta");
 const app = express();
 require('./Database/db');
  
@@ -19,7 +19,7 @@ app.use(cors({ exposedHeaders: 'X-Session-Token' }));
 
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
-app.use('/admin', checkAdminSessionMiddleware);
+// app.use('/admin', checkAdminSessionMiddleware);
  
 app.post("/contact", addContact);
 app.get("/contact", getContact);
@@ -41,7 +41,8 @@ app.patch('/admin/set-password', setAdminPassword);
 app.post('/admin/sign-in', adminSignIn);
 app.post('/admin/reset-password', resetPassword);
 
-app.patch("/admin/page-meta", updateMetaDetails);
+app.patch("/admin/page-meta-status", updateMetaStatus);
+app.post("/admin/page-meta", addNewMeta);
 app.get("/page-meta", getMetaDetails);
  
 app.listen(PORT, function (error) {
