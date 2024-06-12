@@ -45,6 +45,7 @@
         },
         getAllMeta: async (req, res) => {
             const { ok, response = [] } = await runDBQuery(getAllMetaQuery());
+            let activeMeta = {};
             const resp = response.map(el => {
                 const { english, hindi } = el;
                 const meta = { ...el };
@@ -54,9 +55,12 @@
                 } catch (e) {
                     console.log('Error while parsing', e);
                 }
+                if (el.active) {
+                    activeMeta = meta;
+                }
                 return meta;
             });
-            return res.status(ok ? 200 : 500).send(resp);
+            return res.status(ok ? 200 : 500).send({ allMeta: resp, active: activeMeta });
         }
     };
 }());

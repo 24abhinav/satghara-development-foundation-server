@@ -19,7 +19,7 @@ app.use(cors({ exposedHeaders: 'X-Session-Token' }));
 
 app.use('/static', express.static(path.join(__dirname, 'public')));
 
-app.use('/admin', checkAdminSessionMiddleware);
+// app.use('/admin', checkAdminSessionMiddleware);
  
 app.post("/contact", addContact);
 app.get("/contact", getContact);
