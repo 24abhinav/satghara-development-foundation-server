@@ -52,9 +52,21 @@
                     "overview": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
                 },
                 "commonKitchen": {
-                    "upcoming": "Upcoming",
+                    "upcoming": "",
                     "imageUrl": "Assets/kitchen.jpg",
                     "heading": "A Nominal price Common kitchen",
+                    "overview": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                },
+                "freeTuition": {
+                    "upcoming": "",
+                    "imageUrl": "Assets/tuition.jpg",
+                    "heading": "Free tuition for children",
+                    "overview": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+                },
+                "streetLight": {
+                    "upcoming": "",
+                    "imageUrl": "Assets/street-light.jpg",
+                    "heading": "Installation of street light of almost every street",
                     "overview": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
                 }
             },
@@ -137,9 +149,21 @@
                     "overview": "वर्ष जिसकी ज्यादा सभीकुछ मुख्यतह शीघ्र मेंभटृ पासपाई संपुर्ण सकती दर्शाता पहोचाना अंग्रेजी होने पुर्व परिवहन मुश्किले लिए। समजते सक्षम किएलोग जानकारी दस्तावेज रिती पहोच। विभाजन आंतरजाल मेमत रिती करता। रहारुप व्याख्यान प्रौध्योगिकी विवरण प्रतिबध अर्थपुर्ण भाषए विवरण पेदा आवश्यकत स्वतंत्रता आंतरकार्यक्षमता बनाने समूह पहोचने सभीकुछ यायेका भेदनक्षमता गटको तरीके"
                 },
                 "commonKitchen": {
-                    "upcoming": "आगामी",
+                    "upcoming": "",
                     "imageUrl": "Assets/kitchen.jpg",
                     "heading": "नाममात्र की कीमत वाली सामान्य रसोई",
+                    "overview": "वर्ष जिसकी ज्यादा सभीकुछ मुख्यतह शीघ्र मेंभटृ पासपाई संपुर्ण सकती दर्शाता पहोचाना अंग्रेजी होने पुर्व परिवहन मुश्किले लिए। समजते सक्षम किएलोग जानकारी दस्तावेज रिती पहोच। विभाजन आंतरजाल मेमत रिती करता। रहारुप व्याख्यान प्रौध्योगिकी विवरण प्रतिबध अर्थपुर्ण भाषए विवरण पेदा आवश्यकत स्वतंत्रता आंतरकार्यक्षमता बनाने समूह पहोचने सभीकुछ यायेका भेदनक्षमता गटको तरीके"
+                },
+                "freeTuition": {
+                    "upcoming": "",
+                    "imageUrl": "Assets/tuition.jpg",
+                    "heading": "बच्चों के लिए निःशुल्क ट्यूशन",
+                    "overview": "वर्ष जिसकी ज्यादा सभीकुछ मुख्यतह शीघ्र मेंभटृ पासपाई संपुर्ण सकती दर्शाता पहोचाना अंग्रेजी होने पुर्व परिवहन मुश्किले लिए। समजते सक्षम किएलोग जानकारी दस्तावेज रिती पहोच। विभाजन आंतरजाल मेमत रिती करता। रहारुप व्याख्यान प्रौध्योगिकी विवरण प्रतिबध अर्थपुर्ण भाषए विवरण पेदा आवश्यकत स्वतंत्रता आंतरकार्यक्षमता बनाने समूह पहोचने सभीकुछ यायेका भेदनक्षमता गटको तरीके"
+                },
+                "streetLight": {
+                    "upcoming": "",
+                    "imageUrl": "Assets/street-light.jpg",
+                    "heading": "लगभग हर सड़क पर स्ट्रीट लाइट लगाना",
                     "overview": "वर्ष जिसकी ज्यादा सभीकुछ मुख्यतह शीघ्र मेंभटृ पासपाई संपुर्ण सकती दर्शाता पहोचाना अंग्रेजी होने पुर्व परिवहन मुश्किले लिए। समजते सक्षम किएलोग जानकारी दस्तावेज रिती पहोच। विभाजन आंतरजाल मेमत रिती करता। रहारुप व्याख्यान प्रौध्योगिकी विवरण प्रतिबध अर्थपुर्ण भाषए विवरण पेदा आवश्यकत स्वतंत्रता आंतरकार्यक्षमता बनाने समूह पहोचने सभीकुछ यायेका भेदनक्षमता गटको तरीके"
                 }
             },
