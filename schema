@@ -36,5 +36,9 @@ CREATE TABLE OrgUser(
 
 CREATE TABLE META (
     ID  SERIAL PRIMARY KEY,
-    META jsonb NOT NULL
+    english TEXT NOT NULL,
+    hindi TEXT NOT NULL,
+    active Boolean DEFAULT false,
+    dead Boolean DEFAULT false,
+    modifiedBy VARCHAR
 );

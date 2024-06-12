@@ -117,10 +117,11 @@ const query = {
         `;
     },
     getMetaQuery: (status = true) => `SELECT * FROM META WHERE active=${status}`,
-    getAllMetaQuery: () => `SELECT * FROM META`,
+    getAllMetaQuery: () => `SELECT * FROM META where dead=false`,
     getActiveMetaId: () => `SELECT id FROM META WHERE active=true`,
-    changeMetaStatus: ({ id, status }) => `UPDATE META SET active=${status} where id=${id}`,
-    addMetaQuery: ({ encodedEnglish, encodedHindi } = {}) => `INSERT INTO META (english, hindi) VALUES ('${encodedEnglish}', '${encodedHindi}')`,
+    changeMetaStatus: ({ id, status, name }) => `UPDATE META SET active=${status}, modifiedBy='${name}' where id=${id}`,
+    addMetaQuery: ({ encodedEnglish, encodedHindi, name } = {}) => `INSERT INTO META (english, hindi, modifiedby) VALUES ('${encodedEnglish}', '${encodedHindi}', '${name}')`,
+    deleteMeta: ({ id, name }) => `UPDATE META SET dead=true, modifiedBy='${name}' where id=${id}`
 };
 
 module.exports = query;

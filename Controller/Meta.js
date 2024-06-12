@@ -1,21 +1,32 @@
 
 (function () {
     const { runDBQuery } = require("../Database/db");
-    const { getMetaQuery, addMetaQuery, changeMetaStatus, getAllMetaQuery } = require("../Database/query");
+    const { getMetaQuery, addMetaQuery, changeMetaStatus, getAllMetaQuery, getActiveMetaId, deleteMeta } = require("../Database/query");
     const manifest = require("../manifest");
     const { errorHandler, isJasonValid } = require("./General");
 
     module.exports = {
         addNewMeta: async (req, res) => {
-            const { body: { english = {}, hindi = {} } = {} } = req;
+            const {
+                userDetails: { name = '' } = {},
+                body: { english = {}, hindi = {} } = {}
+            } = req;
             const encodedEnglish = JSON.stringify(english).replace(/'/g, "''");
             const encodedHindi = JSON.stringify(hindi).replace(/'/g, "''");
-            const { ok } = await runDBQuery(addMetaQuery({ encodedEnglish, encodedHindi }));
+            const { ok } = await runDBQuery(addMetaQuery({ encodedEnglish, encodedHindi, name }));
             return res.status(ok ? 200: 500).send();
         },
         updateMetaStatus: async (req, res) => {
-            const { body: { id = '', status = '' } = {} } = req;
-            const { ok } = await runDBQuery(changeMetaStatus({ id, status }));
+            const {
+                userDetails: { name = '' } = {},
+                body: { id = '', status = '', activeId = '' } = {}
+            } = req;
+            const { ok } = await runDBQuery(changeMetaStatus({ id, status, name }));
+            if (ok) {
+                if (activeId) {
+                    await runDBQuery(changeMetaStatus({ id: activeId, status: false, name }));
+                }
+            }
             return res.status(ok ? 200: 500).send();
         },
         getMetaDetails: async (req, res) => {
@@ -61,6 +72,20 @@
                 return meta;
             });
             return res.status(ok ? 200 : 500).send({ allMeta: resp, active: activeMeta });
+        },
+        deleteMeta:  async (req, res) => {
+            const {
+                userDetails: { name = '' } = {},
+                params: { id = '' } = {}
+            } = req;
+            const { ok, response: [{ id: activeId = '' } = {}] = [] } = await runDBQuery(getActiveMetaId());
+            if (ok) {
+                if (Number(id) === Number(activeId)) {
+                    return res.status(400).send({ message: 'Active meta can not be deleted'});
+                }
+                const { ok } = await runDBQuery(deleteMeta({ id, name }));
+                return res.status(ok ? 200: 500).send();
+            }
         }
     };
 }());
