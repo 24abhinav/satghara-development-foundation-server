@@ -12,9 +12,9 @@ const errorHandler = (err, res) => {
         addDonation: async (req, res) => {
             const { body } = req;
             try {
-                const { amount, name, ...restPayload } = body;
+                const { amount, name, notes = '', ...restPayload } = body;
                 const hindiContent = await translate({ name, ...restPayload }, { from: 'en', to: 'hi'});
-                const { ok } = await runDBQuery(addDonationQuery({ hindi: hindiContent, english: { name: name.toLowerCase(), ...restPayload}, amount }));
+                const { ok } = await runDBQuery(addDonationQuery({ hindi: hindiContent, english: { name: name.toLowerCase(), ...restPayload}, amount, notes }));
                 const status = ok ? 201 : 500;
                 return res.status(status).send();
             } catch (err) {

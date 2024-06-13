@@ -25,12 +25,12 @@ const query = {
     changeVisitorsStatusQuery: ({ id }) => {
         return `UPDATE visitorscontact SET active=false WHERE id=${id};`;
     },
-    addDonationQuery: ({ english, hindi, amount }) => {
+    addDonationQuery: ({ english, hindi, amount, notes = '' }) => {
         const date = new Date();
         const month = date.toLocaleString('default', { month: 'long' }).toLowerCase();
         const day = date.getDate();
         return `
-            INSERT INTO DONATION (english, hindi, amount, date, day, month, year)
+            INSERT INTO DONATION (english, hindi, amount, date, day, month, year, notes)
             VALUES
             (
                 '${JSON.stringify(english)}',
@@ -39,7 +39,8 @@ const query = {
                 '${date.getTime()}',
                 ${day},
                 '${month}',
-                ${date.getFullYear()}
+                ${date.getFullYear()},
+                '${notes}'
             )
         `;
     },
