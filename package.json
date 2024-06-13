@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon"
+    "dev": "nodemon",
+    "push": "git add . && git commit -m \"Development of program page\" && git push"
   },
   "author": "",
   "license": "ISC",

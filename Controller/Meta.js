@@ -1,3 +1,5 @@
+const { sanitizeObject } = require("../helper");
+
 (function () {
     const { runDBQuery } = require("../Database/db");
     const { getMetaQuery, addMetaQuery, changeMetaStatus, getAllMetaQuery, getActiveMetaId, deleteMeta } = require("../Database/query");
@@ -10,9 +12,9 @@
                 userDetails: { name = '' } = {},
                 body: { english = {}, hindi = {} } = {}
             } = req;
-            const encodedEnglish = JSON.stringify(english).replace(/'/g, "''");
-            const encodedHindi = JSON.stringify(hindi).replace(/'/g, "''");
-            const { ok } = await runDBQuery(addMetaQuery({ encodedEnglish, encodedHindi, name }));
+            const encodedEnglish = JSON.stringify(english);
+            const encodedHindi = JSON.stringify(hindi);
+            const { ok } = await runDBQuery(addMetaQuery(sanitizeObject({ encodedEnglish, encodedHindi, name })));
             return res.status(ok ? 200: 500).send();
         },
         updateMetaStatus: async (req, res) => {

@@ -1,3 +1,5 @@
+const { sanitizeObject } = require('../helper');
+
 (function () {
     const translate = require('translate-google');
     const { runDBQuery } = require("../Database/db");
@@ -27,12 +29,12 @@
             } = req;
             const english = { title, description, alerts };
             const hindi = await translate({ ...english }, { from: 'en', to: 'hi'});
-            const query = addNewProgramQuery({
+            const query = addNewProgramQuery(sanitizeObject({
                 createdBy: name,
                 detailsPageUrl,
                 english: JSON.stringify(english),
                 hindi: JSON.stringify(hindi)
-            });
+            }));
             const { ok } = await runDBQuery(query);
             return res.status(ok ? 200 : 500).send();
         },
@@ -43,13 +45,13 @@
             } = req;
             const english = { title, description, alerts };
             const hindi = await translate({ ...english }, { from: 'en', to: 'hi'});
-            const query = editProgramQuery({
+            const query = editProgramQuery(sanitizeObject({
                 username: name,
                 detailsPageUrl,
                 english: JSON.stringify(english),
                 hindi: JSON.stringify(hindi),
                 id
-            });
+            }));
             const { ok } = await runDBQuery(query);
             return res.status(ok ? 200 : 500).send();
         },

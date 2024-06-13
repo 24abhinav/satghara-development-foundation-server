@@ -40,5 +40,13 @@ const manifest = require('./manifest');
                 <p>Click <a href="${link}" target="_blank">here</a> to set your new password</p>
             </div>
         `,
+        sanitizeObject: (obj) => {
+          Object.keys(obj).forEach(key => {
+            if (typeof obj[key].replace === 'function') {
+              obj[key] = obj[key].replace(/'/g, "''")
+            }
+          });
+          return obj
+        }
     };
 }());
