@@ -25,13 +25,13 @@ const { sanitizeObject } = require('../helper');
         addNewProgram: async (req, res) => {
             const {
                 userDetails: { name = '' } = {},
-                body: { title = '', description = '', alerts = '', detailsPageUrl = '' } = {}
+                body: { title = '', description = '', alerts = '', detailspageurl = '' } = {}
             } = req;
             const english = { title, description, alerts };
             const hindi = await translate({ ...english }, { from: 'en', to: 'hi'});
             const query = addNewProgramQuery(sanitizeObject({
                 createdBy: name,
-                detailsPageUrl,
+                detailspageurl,
                 english: JSON.stringify(english),
                 hindi: JSON.stringify(hindi)
             }));
@@ -41,13 +41,13 @@ const { sanitizeObject } = require('../helper');
         editProgram: async (req, res) => {
             const {
                 userDetails: { name = '' } = {},
-                body: { title = '', description = '', alerts = '', detailsPageUrl = '', id = '' } = {}
+                body: { title = '', description = '', alerts = '', detailspageurl = '', id = '' } = {}
             } = req;
             const english = { title, description, alerts };
             const hindi = await translate({ ...english }, { from: 'en', to: 'hi'});
             const query = editProgramQuery(sanitizeObject({
                 username: name,
-                detailsPageUrl,
+                detailspageurl,
                 english: JSON.stringify(english),
                 hindi: JSON.stringify(hindi),
                 id
