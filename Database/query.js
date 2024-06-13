@@ -136,7 +136,7 @@ const query = {
             '${detailsPageUrl}'
         )
     `,
-    editProgramQuery: ({ english, hindi, username, detailsPageUrl, id }) => `UPDATE PROGRAMS SET english='${english}', hindi='${hindi}', modifiedBy='${username}', detailsPageUrl='${detailsPageUrl}', WHERE id=${id}`,
+    editProgramQuery: ({ english, hindi, username, detailsPageUrl, id }) => `UPDATE PROGRAMS SET english='${english}', hindi='${hindi}', modifiedBy='${username}', detailsPageUrl='${detailsPageUrl}' WHERE id=${id}`,
     deleteProgramQuery: ({ id, username }) => `UPDATE PROGRAMS SET dead=true, modifiedBy='${username}' WHERE id=${id}`,
     changeProgramImageQuery: ({ id, username, image }) => `UPDATE PROGRAMS SET modifiedBy='${username}', imageUrl='${image}' WHERE id=${id}`,
 };
