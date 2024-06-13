@@ -1,6 +1,6 @@
 const { runDBQuery } = require("../Database/db");
 const { addDonationQuery, getDonationQuery, deleteDonationQuery, updateDonationQuery, getDonationSumQuery } = require("../Database/query");
-const translate = require('translate-google')
+const translate = require('translate-google');
 
 const errorHandler = (err, res) => {
     console.log('API error', err);

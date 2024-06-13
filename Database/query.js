@@ -121,7 +121,24 @@ const query = {
     getActiveMetaId: () => `SELECT id FROM META WHERE active=true`,
     changeMetaStatus: ({ id, status, name }) => `UPDATE META SET active=${status}, modifiedBy='${name}' where id=${id}`,
     addMetaQuery: ({ encodedEnglish, encodedHindi, name } = {}) => `INSERT INTO META (english, hindi, modifiedBy) VALUES ('${encodedEnglish}', '${encodedHindi}', '${name}')`,
-    deleteMeta: ({ id, name }) => `UPDATE META SET dead=true, modifiedBy='${name}' where id=${id}`
+    deleteMeta: ({ id, name }) => `UPDATE META SET dead=true, modifiedBy='${name}' where id=${id}`,
+    
+    // Programs
+    getProgramQuery: (id) => `SELECT * FROM PROGRAMS WHERE dead=false ${id && `AND id=${id}`}`,
+    addNewProgramQuery: ({ english, hindi, createdBy, detailsPageUrl }) => `
+        INSERT INTO PROGRAMS (english, hindi, createdBy, modifiedBy, detailsPageUrl)
+        VALUES
+        (
+            '${english}',
+            '${hindi}',
+            '${createdBy}',
+            '${createdBy}',
+            '${detailsPageUrl}'
+        )
+    `,
+    editProgramQuery: ({ english, hindi, username, detailsPageUrl, id }) => `UPDATE PROGRAMS SET english='${english}', hindi='${hindi}', modifiedBy='${username}', detailsPageUrl='${detailsPageUrl}', WHERE id=${id}`,
+    deleteProgramQuery: ({ id, username }) => `UPDATE PROGRAMS SET dead=true, modifiedBy='${username}' WHERE id=${id}`,
+    changeProgramImageQuery: ({ id, username, image }) => `UPDATE PROGRAMS SET modifiedBy='${username}', imageUrl='${image}' WHERE id=${id}`,
 };
 
 module.exports = query;
