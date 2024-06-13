@@ -25,14 +25,14 @@
             }
         },
         addAdminUser: async (req, res) => {
-            const { body } = req;
+            const { body, userDetails: { name: createdBy = '' } = {}, } = req;
             const { email = '' } = body;
             try {
                 const { isUserExist } = await checkAdminDuplicateUser(email);
                 if (isUserExist) {
                     return res.status(409).send();
                 }
-                const { ok } = await runDBQuery(addOrgUserQuery(body));
+                const { ok } = await runDBQuery(addOrgUserQuery({ ...body, createdBy }));
                 if (ok) {
                     await sendPasswordSetLink({ email, firstTimeUser: true });
                 }

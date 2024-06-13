@@ -69,9 +69,9 @@ const query = {
 
     getOrgUserQuery: 'SELECT * FROM OrgUser',
     checkOrgUserQuery: (email) => `SELECT * FROM OrgUser where email='${email}'`,
-    addOrgUserQuery: ({ name, email, mobile, role, designation }) => {
+    addOrgUserQuery: ({ name, email, mobile, role, designation, createdBy }) => {
         return `
-            INSERT INTO OrgUser (name, email, mobile, designation, role, date)
+            INSERT INTO OrgUser (name, email, mobile, designation, role, createdby)
             VALUES
             (
                 '${name}',
@@ -79,7 +79,7 @@ const query = {
                 ${mobile},
                 '${designation}',
                 ${role ? role : null},
-                '${new Date().getTime()}'
+                '${createdBy}'
             )
         `;
     },
@@ -120,7 +120,7 @@ const query = {
     getAllMetaQuery: () => `SELECT * FROM META where dead=false`,
     getActiveMetaId: () => `SELECT id FROM META WHERE active=true`,
     changeMetaStatus: ({ id, status, name }) => `UPDATE META SET active=${status}, modifiedBy='${name}' where id=${id}`,
-    addMetaQuery: ({ encodedEnglish, encodedHindi, name } = {}) => `INSERT INTO META (english, hindi, modifiedby) VALUES ('${encodedEnglish}', '${encodedHindi}', '${name}')`,
+    addMetaQuery: ({ encodedEnglish, encodedHindi, name } = {}) => `INSERT INTO META (english, hindi, modifiedBy) VALUES ('${encodedEnglish}', '${encodedHindi}', '${name}')`,
     deleteMeta: ({ id, name }) => `UPDATE META SET dead=true, modifiedBy='${name}' where id=${id}`
 };
 

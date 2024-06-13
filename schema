@@ -31,7 +31,9 @@ CREATE TABLE OrgUser(
     MOBILE              BIGINT      NOT NULL,
     ROLE                TEXT        NULL DEFAULT 'non-admin',
     DATE                TEXT        NOT NULL,
-    ACTIVE              Boolean     NULL DEFAULT false
+    ACTIVE              Boolean     NULL DEFAULT false,
+    createdBy           VARCHAR,
+    createdAt           timestamp   default (now() at time zone 'utc')
 );
 
 CREATE TABLE META (
@@ -40,5 +42,6 @@ CREATE TABLE META (
     hindi TEXT NOT NULL,
     active Boolean DEFAULT false,
     dead Boolean DEFAULT false,
-    modifiedBy VARCHAR
+    modifiedBy VARCHAR,
+    createdAt timestamp default (now() at time zone 'utc')
 );

@@ -1,4 +1,3 @@
-
 (function () {
     const { runDBQuery } = require("../Database/db");
     const { getMetaQuery, addMetaQuery, changeMetaStatus, getAllMetaQuery, getActiveMetaId, deleteMeta } = require("../Database/query");

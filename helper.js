@@ -39,6 +39,6 @@ const manifest = require('./manifest');
                 </p>
                 <p>Click <a href="${link}" target="_blank">here</a> to set your new password</p>
             </div>
-        `
+        `,
     };
 }());
