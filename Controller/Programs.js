@@ -7,14 +7,14 @@ const { sanitizeObject } = require('../helper');
 
     module.exports = {
         getPrograms: async (req, res) => {
-            const { query: { id = '', lng = 'en' } = {}} = req;
+            const { query: { id = '', lng = 'hindi' } = {}} = req;
             const { ok, response } = await runDBQuery(getProgramQuery(id));
             const ApiResponse = response.map(el => {
                 try {
                     const { hindi, english, ...rest } = el;
                     return {
                         ...rest,
-                        ...(JSON.parse(lng === 'en' ? english : hindi))
+                        ...(JSON.parse(lng === 'hindi' ? hindi : english))
                     }
                 } catch (e) {
                     console.log('Error while parsing programs', e);
