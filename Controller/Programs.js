@@ -7,8 +7,8 @@ const { sanitizeObject } = require('../helper');
 
     module.exports = {
         getPrograms: async (req, res) => {
-            const { query: { id = '', lng = 'hindi' } = {}} = req;
-            const { ok, response } = await runDBQuery(getProgramQuery(id));
+            const { query: { id = '', lng = 'english', url = '' } = {}} = req;
+            const { response = [] } = await runDBQuery(getProgramQuery(id, url));
             const ApiResponse = response.map(el => {
                 try {
                     const { hindi, english, ...rest } = el;
@@ -20,7 +20,7 @@ const { sanitizeObject } = require('../helper');
                     console.log('Error while parsing programs', e);
                 }
             });
-            return res.status(ok ? 200 : 500).send(ApiResponse);
+            return res.status(200).send(ApiResponse);
         },
         addNewProgram: async (req, res) => {
             const {

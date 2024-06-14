@@ -125,7 +125,7 @@ const query = {
     deleteMeta: ({ id, name }) => `UPDATE META SET dead=true, modifiedBy='${name}' where id=${id}`,
     
     // Programs
-    getProgramQuery: (id) => `SELECT * FROM PROGRAMS WHERE dead=false ${id && `AND id=${id}`}`,
+    getProgramQuery: (id, url) => `SELECT * FROM PROGRAMS WHERE dead=false ${id && `AND id=${id}`} ${url && `AND detailspageurl='${url}'`}`,
     addNewProgramQuery: ({ english, hindi, createdBy, detailspageurl }) => `
         INSERT INTO PROGRAMS (english, hindi, createdBy, modifiedBy, detailspageurl)
         VALUES
