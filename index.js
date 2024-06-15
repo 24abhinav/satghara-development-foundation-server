@@ -8,7 +8,7 @@ const { addDonation, getDonation, deleteDonation, updateDonation } = require("./
 const { addAdminUser, getAdminUser, deleteAdminUser, changeAdminUser, setAdminPassword, adminSignIn, resetPassword, checkAdminSessionMiddleware } = require("./Controller/AdminUser");
 const { getMetaDetails, updateMetaStatus, addNewMeta, getAllMeta, deleteMeta } = require("./Controller/Meta");
 const { addNewProgram, getPrograms, editProgram, deleteProgram, changeProgramImage } = require("./Controller/Programs");
-const { getVideos, addNewVideo, deleteVideo, videoProgramMapping } = require("./Controller/youtube");
+const { getVideos, addNewVideo, deleteVideo, videoProgramMapping, getVideoByProgramId } = require("./Controller/youtube");
 const app = express();
 require('./Database/db');
  
@@ -27,6 +27,7 @@ app.get('/donation', getDonation);
 app.get("/page-meta", getMetaDetails);
 app.get("/programs", getPrograms);
 app.get("/youtube-videos", getVideos);
+app.get("/program-videos", getVideoByProgramId);
 
 
 app.delete("/admin/contact", deleteContact);

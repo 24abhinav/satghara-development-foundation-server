@@ -2,7 +2,7 @@
     const translate = require('translate-google');
     const { sanitizeObject } = require('../helper');
     const { runDBQuery } = require("../Database/db");
-    const { getVideosQuery, addNewVideoQuery, deleteVideoQuery, getProgramQuery, getVideoProgramMappingQuery, deleteVideoProgramMappingQuery, addVideoProgramMappingQuery } = require("../Database/query");
+    const { getVideosQuery, addNewVideoQuery, deleteVideoQuery, getProgramQuery, getVideoProgramMappingQuery, deleteVideoProgramMappingQuery, addVideoProgramMappingQuery, deleteVideoProgramMappingByVideoIdQuery } = require("../Database/query");
 
     module.exports = {
         getVideos: async (req, res) => {
@@ -40,6 +40,7 @@
         deleteVideo: async (req, res) => {
             const { params: { id = '' } = {} } = req;
             const { ok } = await runDBQuery(deleteVideoQuery(id));
+            await runDBQuery(deleteVideoProgramMappingByVideoIdQuery({ videoId: id }));
             return res.status(ok ? 204 : 500).send();
         },
         videoProgramMapping: async (req, res) => {
@@ -74,6 +75,11 @@
                 }
             }
             return res.status(status).send({ message });
+        },
+        getVideoByProgramId:  async (req, res) => {
+            const { query: { programId = 0 } = {}} = req;
+            const { response = [] } = await runDBQuery(getVideoProgramMappingQuery({ programId }));
+            return res.status(200).send(response);
         }
     };
 }());

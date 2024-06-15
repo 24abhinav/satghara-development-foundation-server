@@ -650,7 +650,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{api}}/programs?url=hospital",
+							"raw": "{{api}}/programs",
 							"host": [
 								"{{api}}"
 							],
@@ -670,7 +670,8 @@
 								},
 								{
 									"key": "url",
-									"value": "hospital"
+									"value": "hospital",
+									"disabled": true
 								}
 							]
 						}
@@ -837,14 +838,14 @@
 							}
 						],
 						"url": {
-							"raw": "{{api}}/admin/youtube-video/1",
+							"raw": "{{api}}/admin/youtube-video/15",
 							"host": [
 								"{{api}}"
 							],
 							"path": [
 								"admin",
 								"youtube-video",
-								"1"
+								"15"
 							]
 						}
 					},
@@ -863,7 +864,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"programId\": 13,\r\n    \"videoId\": 13\r\n}",
+							"raw": "{\r\n    \"programId\": 13,\r\n    \"videoId\": 15\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -878,6 +879,29 @@
 							"path": [
 								"admin",
 								"video-program-mapping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Video Program ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/program-videos?programId=13",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"program-videos"
+							],
+							"query": [
+								{
+									"key": "programId",
+									"value": "13"
+								}
 							]
 						}
 					},
