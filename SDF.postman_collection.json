@@ -650,7 +650,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{api}}/programs",
+							"raw": "{{api}}/programs?lng=hindi&url=hospital",
 							"host": [
 								"{{api}}"
 							],
@@ -660,13 +660,16 @@
 							"query": [
 								{
 									"key": "lng",
-									"value": "hi",
-									"disabled": true
+									"value": "hindi"
 								},
 								{
 									"key": "id",
 									"value": "2",
 									"disabled": true
+								},
+								{
+									"key": "url",
+									"value": "hospital"
 								}
 							]
 						}
@@ -760,6 +763,86 @@
 								"admin",
 								"programs",
 								"change-image",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Youtube",
+			"item": [
+				{
+					"name": "Get videos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api}}/youtube-videos",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"youtube-videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add video",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "x-session-token",
+								"value": "{{x-session-token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"SDF members on youtube\",\r\n    \"url\": \"N16xwVEzpY8\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api}}/admin/youtube-video",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"admin",
+								"youtube-video"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Video",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "x-session-token",
+								"value": "{{x-session-token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{api}}/admin/youtube-video/1",
+							"host": [
+								"{{api}}"
+							],
+							"path": [
+								"admin",
+								"youtube-video",
 								"1"
 							]
 						}

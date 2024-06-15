@@ -1,6 +1,6 @@
-const { sanitizeObject } = require('../helper');
 
 (function () {
+    const { sanitizeObject } = require('../helper');
     const translate = require('translate-google');
     const { runDBQuery } = require("../Database/db");
     const { addNewProgramQuery, getProgramQuery, editProgramQuery, deleteProgramQuery, changeProgramImageQuery } = require("../Database/query");

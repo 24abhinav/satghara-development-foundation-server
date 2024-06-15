@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon",
-    "push": "git add . && git commit -m \"Development of program page\" && git push"
+    "push": "git add . && git commit -m \"Development of youtube api\" && git push"
   },
   "author": "",
   "license": "ISC",

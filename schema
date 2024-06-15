@@ -46,7 +46,6 @@ CREATE TABLE META (
     modifiedBy VARCHAR,
     createdAt timestamp default (now() at time zone 'utc')
 );
--- title, description, detailspageurl, alerts
 CREATE TABLE PROGRAMS (
     ID              SERIAL PRIMARY KEY,
     english         TEXT NOT NULL,
@@ -57,5 +56,14 @@ CREATE TABLE PROGRAMS (
     dead            Boolean DEFAULT false,
     createdBy       VARCHAR,
     modifiedBy      VARCHAR,
+    createdAt       timestamp default (now() at time zone 'utc')
+);
+
+CREATE TABLE Youtube (
+    ID              SERIAL PRIMARY KEY,
+    english         TEXT NOT NULL,
+    hindi           TEXT NOT NULL,
+    url             TEXT NOT NULL,
+    createdBy       VARCHAR,
     createdAt       timestamp default (now() at time zone 'utc')
 );
