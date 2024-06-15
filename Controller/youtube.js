@@ -2,7 +2,7 @@
     const translate = require('translate-google');
     const { sanitizeObject } = require('../helper');
     const { runDBQuery } = require("../Database/db");
-    const { getVideosQuery, addNewVideoQuery, deleteVideoQuery } = require("../Database/query");
+    const { getVideosQuery, addNewVideoQuery, deleteVideoQuery, getProgramQuery, getVideoProgramMappingQuery, deleteVideoProgramMappingQuery, addVideoProgramMappingQuery } = require("../Database/query");
 
     module.exports = {
         getVideos: async (req, res) => {
@@ -42,5 +42,38 @@
             const { ok } = await runDBQuery(deleteVideoQuery(id));
             return res.status(ok ? 204 : 500).send();
         },
+        videoProgramMapping: async (req, res) => {
+            const {
+                userDetails: { name = '' } = {},
+                body: { programId = '', videoId = '' } = {}
+            } = req;
+            let message = 'Provide valid input';
+            let status = 400;
+            if (programId && videoId) {
+                const params = { videoId, programId, name };
+                const { response: [program] = [] } = await runDBQuery(getProgramQuery(programId));
+                if (program) {
+                    const { response: [{ url = '' } = {}] = [] } = await runDBQuery(getVideosQuery(videoId));
+                    if (url) {
+                        params.url = url;
+                        const {response: [existingMapping] = [] } = await runDBQuery(getVideoProgramMappingQuery({ ...params }));
+                        if (existingMapping) {
+                            const { ok } = await runDBQuery(deleteVideoProgramMappingQuery({ ...params }));
+                            if (ok) {
+                                message = 'Video removed from the Program';
+                                status = 200;
+                            }
+                        } else {
+                            const { ok } = await runDBQuery(addVideoProgramMappingQuery({ ...params }));
+                            if (ok) {
+                                message = 'Video added to the program';
+                                status = 201;
+                            }
+                        }
+                    }
+                }
+            }
+            return res.status(status).send({ message });
+        }
     };
 }());

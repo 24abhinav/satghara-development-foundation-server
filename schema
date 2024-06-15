@@ -68,3 +68,12 @@ CREATE TABLE Youtube (
     createdBy       VARCHAR,
     createdAt       timestamp default (now() at time zone 'utc')
 );
+
+CREATE TABLE video_program_mapping (
+    ID              SERIAL PRIMARY KEY,
+    programId       INT NOT NULL,
+    videoId         INT NOT NULL,
+    url             TEXT NOT NULL,
+    createdBy       VARCHAR,
+    createdAt       timestamp default (now() at time zone 'utc')
+);

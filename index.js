@@ -8,7 +8,7 @@ const { addDonation, getDonation, deleteDonation, updateDonation } = require("./
 const { addAdminUser, getAdminUser, deleteAdminUser, changeAdminUser, setAdminPassword, adminSignIn, resetPassword, checkAdminSessionMiddleware } = require("./Controller/AdminUser");
 const { getMetaDetails, updateMetaStatus, addNewMeta, getAllMeta, deleteMeta } = require("./Controller/Meta");
 const { addNewProgram, getPrograms, editProgram, deleteProgram, changeProgramImage } = require("./Controller/Programs");
-const { getVideos, addNewVideo, deleteVideo } = require("./Controller/youtube");
+const { getVideos, addNewVideo, deleteVideo, videoProgramMapping } = require("./Controller/youtube");
 const app = express();
 require('./Database/db');
  
@@ -51,6 +51,7 @@ app.delete("/admin/programs/:id", deleteProgram);
 app.patch("/admin/programs/change-image/:id", changeProgramImage);
 app.post("/admin/youtube-video", addNewVideo);
 app.delete("/admin/youtube-video/:id", deleteVideo);
+app.post("/admin/video-program-mapping", videoProgramMapping);
 
  
 app.listen(PORT, function (error) {

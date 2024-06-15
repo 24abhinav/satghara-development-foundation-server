@@ -125,7 +125,7 @@ const query = {
     deleteMeta: ({ id, name }) => `UPDATE META SET dead=true, modifiedBy='${name}' where id=${id}`,
     
     // Programs
-    getProgramQuery: (id, url) => `SELECT * FROM PROGRAMS WHERE dead=false ${id && `AND id=${id}`} ${url && `AND detailspageurl='${url}'`}`,
+    getProgramQuery: (id, url) => `SELECT * FROM PROGRAMS WHERE dead=false ${id && `AND id=${id}`} ${url ? `AND detailspageurl='${url}'` : ''}`,
     addNewProgramQuery: ({ english, hindi, createdBy, detailspageurl, maintainer_mobile }) => `
         INSERT INTO PROGRAMS (english, hindi, createdBy, modifiedBy, detailspageurl, maintainer_mobile)
         VALUES
@@ -142,17 +142,28 @@ const query = {
     deleteProgramQuery: ({ id, username }) => `UPDATE PROGRAMS SET dead=true, modifiedBy='${username}' WHERE id=${id}`,
     changeProgramImageQuery: ({ id, username, image }) => `UPDATE PROGRAMS SET modifiedBy='${username}', imageUrl='${image}' WHERE id=${id}`,
     // Youtube
-    getVideosQuery: () => `SELECT * FROM youtube`,
+    getVideosQuery: (id) => `SELECT * FROM youtube ${id && `WHERE id=${id}`}`,
     addNewVideoQuery: ({ english, hindi, url, createdBy }) => `
-            INSERT INTO YOUTUBE (english, hindi, url, createdBy) VALUES
-            (
-                '${english}',
-                '${hindi}',
-                '${url}',
-                '${createdBy}'
-            )
+        INSERT INTO YOUTUBE (english, hindi, url, createdBy) VALUES
+        (
+            '${english}',
+            '${hindi}',
+            '${url}',
+            '${createdBy}'
+        )
     `,
-    deleteVideoQuery: (id) => `DELETE FROM YOUTUBE WHERE id=${id}`
+    deleteVideoQuery: (id) => `DELETE FROM YOUTUBE WHERE id=${id}`,
+    getVideoProgramMappingQuery: ({ programId, videoId }) => `SELECT * FROM video_program_mapping WHERE programId=${programId} AND videoId=${videoId}`,
+    addVideoProgramMappingQuery: ({ programId, videoId, url, name }) => `
+        INSERT INTO video_program_mapping (programId, videoId, url, createdBy) VALUES
+        (
+            ${programId},
+            ${videoId},
+            '${url}',
+            '${name}'
+        )
+    `,
+    deleteVideoProgramMappingQuery: ({ programId, videoId }) => `DELETE FROM video_program_mapping WHERE programId=${programId} AND videoId=${videoId}`,
 };
 
 module.exports = query;
