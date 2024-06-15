@@ -47,16 +47,17 @@ CREATE TABLE META (
     createdAt timestamp default (now() at time zone 'utc')
 );
 CREATE TABLE PROGRAMS (
-    ID              SERIAL PRIMARY KEY,
-    english         TEXT NOT NULL,
-    hindi           TEXT NOT NULL,
-    alerts           TEXT NOT NULL,
-    imageUrl        TEXT DEFAULT 'Assets/program.png',
-    detailspageurl  TEXT,
-    dead            Boolean DEFAULT false,
-    createdBy       VARCHAR,
-    modifiedBy      VARCHAR,
-    createdAt       timestamp default (now() at time zone 'utc')
+    ID                  SERIAL PRIMARY KEY,
+    english             TEXT NOT NULL,
+    hindi               TEXT NOT NULL,
+    alerts              TEXT NOT NULL,
+    imageUrl            TEXT DEFAULT 'Assets/program.png',
+    detailspageurl      TEXT,
+    dead                Boolean DEFAULT false,
+    createdBy           VARCHAR,
+    modifiedBy          VARCHAR,
+    createdAt           timestamp default (now() at time zone 'utc')
+    maintainer_mobile   VARCHAR NOT NULL
 );
 
 CREATE TABLE Youtube (

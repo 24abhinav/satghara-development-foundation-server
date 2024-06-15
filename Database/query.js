@@ -126,18 +126,19 @@ const query = {
     
     // Programs
     getProgramQuery: (id, url) => `SELECT * FROM PROGRAMS WHERE dead=false ${id && `AND id=${id}`} ${url && `AND detailspageurl='${url}'`}`,
-    addNewProgramQuery: ({ english, hindi, createdBy, detailspageurl }) => `
-        INSERT INTO PROGRAMS (english, hindi, createdBy, modifiedBy, detailspageurl)
+    addNewProgramQuery: ({ english, hindi, createdBy, detailspageurl, maintainer_mobile }) => `
+        INSERT INTO PROGRAMS (english, hindi, createdBy, modifiedBy, detailspageurl, maintainer_mobile)
         VALUES
         (
             '${english}',
             '${hindi}',
             '${createdBy}',
             '${createdBy}',
-            '${detailspageurl}'
+            '${detailspageurl}',
+            '${maintainer_mobile}'
         )
     `,
-    editProgramQuery: ({ english, hindi, username, detailspageurl, id }) => `UPDATE PROGRAMS SET english='${english}', hindi='${hindi}', modifiedBy='${username}', detailspageurl='${detailspageurl}' WHERE id=${id}`,
+    editProgramQuery: ({ english, hindi, username, detailspageurl, id, maintainer_mobile }) => `UPDATE PROGRAMS SET english='${english}', hindi='${hindi}', modifiedBy='${username}', detailspageurl='${detailspageurl}', maintainer_mobile='${maintainer_mobile}' WHERE id=${id}`,
     deleteProgramQuery: ({ id, username }) => `UPDATE PROGRAMS SET dead=true, modifiedBy='${username}' WHERE id=${id}`,
     changeProgramImageQuery: ({ id, username, image }) => `UPDATE PROGRAMS SET modifiedBy='${username}', imageUrl='${image}' WHERE id=${id}`,
     // Youtube

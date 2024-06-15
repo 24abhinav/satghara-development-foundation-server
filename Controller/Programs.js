@@ -25,13 +25,23 @@
         addNewProgram: async (req, res) => {
             const {
                 userDetails: { name = '' } = {},
-                body: { title = '', description = '', alerts = '', detailspageurl = '' } = {}
+                body: {
+                    title = '',
+                    description = '',
+                    alerts = '',
+                    address = '',
+                    detailspageurl = '',
+                    maintainer_name = '',
+                    maintainer_mobile = '',
+                    maintainer_address = ''
+                } = {}
             } = req;
-            const english = { title, description, alerts };
+            const english = { title, description, alerts, address, maintainer_name, maintainer_address };
             const hindi = await translate({ ...english }, { from: 'en', to: 'hi'});
             const query = addNewProgramQuery(sanitizeObject({
                 createdBy: name,
                 detailspageurl,
+                maintainer_mobile,
                 english: JSON.stringify(english),
                 hindi: JSON.stringify(hindi)
             }));
@@ -41,16 +51,27 @@
         editProgram: async (req, res) => {
             const {
                 userDetails: { name = '' } = {},
-                body: { title = '', description = '', alerts = '', detailspageurl = '', id = '' } = {}
+                body: {
+                    id,
+                    title = '',
+                    description = '',
+                    alerts = '',
+                    address = '',
+                    detailspageurl = '',
+                    maintainer_name = '',
+                    maintainer_mobile = '',
+                    maintainer_address = ''
+                } = {}
             } = req;
-            const english = { title, description, alerts };
+            const english = { title, description, alerts, address, maintainer_name, maintainer_address };
             const hindi = await translate({ ...english }, { from: 'en', to: 'hi'});
             const query = editProgramQuery(sanitizeObject({
                 username: name,
                 detailspageurl,
                 english: JSON.stringify(english),
                 hindi: JSON.stringify(hindi),
-                id
+                id,
+                maintainer_mobile
             }));
             const { ok } = await runDBQuery(query);
             return res.status(ok ? 200 : 500).send();
