@@ -31,17 +31,15 @@
                     alerts = '',
                     address = '',
                     detailspageurl = '',
-                    maintainer_name = '',
-                    maintainer_mobile = '',
-                    maintainer_address = ''
+                    maintainer = ''
                 } = {}
             } = req;
-            const english = { title, description, alerts, address, maintainer_name, maintainer_address };
+            const english = { title, description, alerts, address };
             const hindi = await translate({ ...english }, { from: 'en', to: 'hi'});
             const query = addNewProgramQuery(sanitizeObject({
                 createdBy: name,
                 detailspageurl,
-                maintainer_mobile,
+                maintainer,
                 english: JSON.stringify(english),
                 hindi: JSON.stringify(hindi)
             }));
@@ -58,12 +56,10 @@
                     alerts = '',
                     address = '',
                     detailspageurl = '',
-                    maintainer_name = '',
-                    maintainer_mobile = '',
-                    maintainer_address = ''
+                    maintainer = '',
                 } = {}
             } = req;
-            const english = { title, description, alerts, address, maintainer_name, maintainer_address };
+            const english = { title, description, alerts, address };
             const hindi = await translate({ ...english }, { from: 'en', to: 'hi'});
             const query = editProgramQuery(sanitizeObject({
                 username: name,
@@ -71,7 +67,7 @@
                 english: JSON.stringify(english),
                 hindi: JSON.stringify(hindi),
                 id,
-                maintainer_mobile
+                maintainer
             }));
             const { ok } = await runDBQuery(query);
             return res.status(ok ? 200 : 500).send();

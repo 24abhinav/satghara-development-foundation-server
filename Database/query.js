@@ -125,9 +125,21 @@ const query = {
     deleteMeta: ({ id, name }) => `UPDATE META SET dead=true, modifiedBy='${name}' where id=${id}`,
     
     // Programs
-    getProgramQuery: (id, url) => `SELECT * FROM PROGRAMS WHERE dead=false ${id && `AND id=${id}`} ${url ? `AND detailspageurl='${url}'` : ''}`,
-    addNewProgramQuery: ({ english, hindi, createdBy, detailspageurl, maintainer_mobile }) => `
-        INSERT INTO PROGRAMS (english, hindi, createdBy, modifiedBy, detailspageurl, maintainer_mobile)
+    getProgramQuery: (id, url) => `
+        SELECT *,
+        orguser."name" as maintainer_name,
+        orguser."mobile" as maintainer_mobile,
+        orguser."email" as maintainer_email,
+        orguser.designation as maintainer_designation
+        FROM programs
+        INNER JOIN orguser ON programs.maintainer = orguser.id
+        WHERE
+        dead=false
+        ${id ? `AND id=${id}` : ''}
+        ${url ? `AND detailspageurl='${url}'` : ''};
+    `,
+    addNewProgramQuery: ({ english, hindi, createdBy, detailspageurl, maintainer }) => `
+        INSERT INTO PROGRAMS (english, hindi, createdBy, modifiedBy, detailspageurl, maintainer)
         VALUES
         (
             '${english}',
@@ -135,10 +147,10 @@ const query = {
             '${createdBy}',
             '${createdBy}',
             '${detailspageurl}',
-            '${maintainer_mobile}'
+            '${maintainer}'
         )
     `,
-    editProgramQuery: ({ english, hindi, username, detailspageurl, id, maintainer_mobile }) => `UPDATE PROGRAMS SET english='${english}', hindi='${hindi}', modifiedBy='${username}', detailspageurl='${detailspageurl}', maintainer_mobile='${maintainer_mobile}' WHERE id=${id}`,
+    editProgramQuery: ({ english, hindi, username, detailspageurl, id, maintainer }) => `UPDATE PROGRAMS SET english='${english}', hindi='${hindi}', modifiedBy='${username}', detailspageurl='${detailspageurl}', maintainer='${maintainer}' WHERE id=${id}`,
     deleteProgramQuery: ({ id, username }) => `UPDATE PROGRAMS SET dead=true, modifiedBy='${username}' WHERE id=${id}`,
     changeProgramImageQuery: ({ id, username, image }) => `UPDATE PROGRAMS SET modifiedBy='${username}', imageUrl='${image}' WHERE id=${id}`,
     // Youtube

@@ -163,13 +163,7 @@
 					"name": "Get admin user",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "x-session-token",
-								"value": "5c785cd491fb214855712e54251aaf093f8b5f4c8e37b32587ce629fcaa7e176f8471e9bea94572be90b3cd795f629161660016ea84f13e136175ff4881e00b292ea2c9d1c5d1cde5b2ea490b7faeffc0178e46d254ec9cee268c29408a0bbc8c96c17af700ecde93279f290d23dc1c940af6cab6705bf6eb2cad81184ab8cc2fce6e33034723786e41444774920cf05444433aeced280b266cc1a3fc5cc80f4ad877117e665064a7d4b80ec703df252703dbfb8c6722a73a43d6ce6b583e8a622be9deba8f55ef22423782362ddcb0801631123ce4a8ebf45c0f7e419f8f4e5ab2772594f85f9e2c655603bee8867db5cbea7b69011a4e07bb28701142e45605d58d9772fc86966a1921204c50e5d3eec75248dc0c389776ca1c2fd890ea5e167afbea889b89818aa9af10fabfa3a06dc5b7b60faed8804231b6dc94fab03a72e5cb03022c63ececcce30221826f2a94ec71ea28f803dacb61e97a3e61d3b361dd55ff210833c7da2db97f9491cf0026b631dcae748832b25d106585a463c98d576004ff8326b721b830f22707c8b3a6c824561e6753325f137e4966e546599d4f1b5d4977cc6b5ef665102a2f5546c142ad7fda50dc2ccad8380c6585a541705afd476ddb50d9eeac68e18d8a7dc6887fa3a54c324f54c789b5260394ddf4cea6046d81a7975e956005034dfaae9049c6fd7582be9bd567262",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"url": {
 							"raw": "{{api}}/admin/user",
 							"host": [
@@ -624,7 +618,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Test program\",\r\n    \"description\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n    \"detailspageurl\": \"program\",\r\n    \"address\": \"center-addres\",\r\n    \"maintainer_name\": \"Randhir Jha\",\r\n    \"maintainer_mobile\": \"1234567898\",\r\n    \"maintainer_address\": \"Utarbay tola\",\r\n    \"alerts\": \"alerts\"\r\n}",
+							"raw": "{\r\n    \"title\": \"Test program\",\r\n    \"description\": \"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",\r\n    \"detailspageurl\": \"program\",\r\n    \"address\": \"center-addres\",\r\n    \"maintainer\": \"11\",\r\n    \"alerts\": \"alerts\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -691,7 +685,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"title\": \"Second Library\",\r\n    \"description\": \"another new library for study purpose\",\r\n    \"detailsPageUrl\": \"library2\",\r\n    \"alerts\": \"Upcoming\",\r\n    \"id\": 14,\r\n    \"address\": \"center-addres\",\r\n    \"maintainer_name\": \"Randhir Jha\",\r\n    \"maintainer_mobile\": \"1234567898\",\r\n    \"maintainer_address\": \"Utarbay tola\"\r\n}",
+							"raw": "{\r\n    \"title\": \"Second Library\",\r\n    \"description\": \"another new library for study purpose\",\r\n    \"detailsPageUrl\": \"library2\",\r\n    \"alerts\": \"Upcoming\",\r\n    \"id\": 14,\r\n    \"address\": \"center-addres\",\r\n    \"maintainer\": \"10\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -908,6 +902,29 @@
 					"response": []
 				}
 			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"const token = pm.environment.get('x-session-token');\r",
+					"pm.request.headers.add({ key: 'x-session-token', value: token });"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
