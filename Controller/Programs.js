@@ -50,7 +50,7 @@
             const {
                 userDetails: { name = '' } = {},
                 body: {
-                    id,
+                    programid,
                     title = '',
                     description = '',
                     alerts = '',
@@ -66,7 +66,7 @@
                 detailspageurl,
                 english: JSON.stringify(english),
                 hindi: JSON.stringify(hindi),
-                id,
+                programid,
                 maintainer
             }));
             const { ok } = await runDBQuery(query);

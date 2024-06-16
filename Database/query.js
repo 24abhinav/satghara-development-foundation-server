@@ -151,7 +151,7 @@ const query = {
             ${maintainer}
         )
     `,
-    editProgramQuery: ({ english, hindi, username, detailspageurl, id, maintainer }) => `UPDATE PROGRAMS SET english='${english}', hindi='${hindi}', modifiedBy='${username}', detailspageurl='${detailspageurl}', maintainer=${maintainer} WHERE id=${id}`,
+    editProgramQuery: ({ english, hindi, username, detailspageurl, programid, maintainer }) => `UPDATE PROGRAMS SET english='${english}', hindi='${hindi}', modifiedBy='${username}', detailspageurl='${detailspageurl}', maintainer=${maintainer} WHERE id=${programid}`,
     deleteProgramQuery: ({ id, username }) => `UPDATE PROGRAMS SET dead=true, modifiedBy='${username}' WHERE id=${id}`,
     changeProgramImageQuery: ({ id, username, image }) => `UPDATE PROGRAMS SET modifiedBy='${username}', imageUrl='${image}' WHERE id=${id}`,
     // Youtube

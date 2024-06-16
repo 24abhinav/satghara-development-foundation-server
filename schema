@@ -50,13 +50,13 @@ CREATE TABLE PROGRAMS (
     ID                  SERIAL PRIMARY KEY,
     english             TEXT NOT NULL,
     hindi               TEXT NOT NULL,
-    alerts              TEXT NOT NULL,
+    alerts              TEXT NULL,
     imageUrl            TEXT DEFAULT 'Assets/program.png',
     detailspageurl      TEXT,
     dead                Boolean DEFAULT false,
     createdBy           VARCHAR,
     modifiedBy          VARCHAR,
-    createdAt           timestamp default (now() at time zone 'utc')
+    createdAt           timestamp default (now() at time zone 'utc'),
     maintainer          INT NOT NULL
 );
 
