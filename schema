@@ -52,10 +52,10 @@ CREATE TABLE PROGRAMS (
     hindi               TEXT NOT NULL,
     alerts              TEXT NULL,
     imageUrl            TEXT DEFAULT 'Assets/program.png',
-    detailspageurl      TEXT,
+    detailspageurl      TEXT NOT NULL,
     dead                Boolean DEFAULT false,
-    createdBy           VARCHAR,
-    modifiedBy          VARCHAR,
+    createdBy           VARCHAR NOT NULL,
+    modifiedBy          VARCHAR NOT NULL,
     createdAt           timestamp default (now() at time zone 'utc'),
     maintainer          INT NOT NULL
 );
