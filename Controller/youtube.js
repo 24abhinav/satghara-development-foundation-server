@@ -24,13 +24,14 @@
         addNewVideo: async (req, res) => {
             const {
                 userDetails: { name = '' } = {},
-                body: { title = '', url = '' } = {}
+                body: { title = '', url = '', platform='' } = {}
             } = req;
             const english = { title };
             const hindi = await translate({ ...english }, { from: 'en', to: 'hi'});
             const query = addNewVideoQuery(sanitizeObject({
                 createdBy: name,
                 url,
+                platform,
                 english: JSON.stringify(english),
                 hindi: JSON.stringify(hindi)
             }));
