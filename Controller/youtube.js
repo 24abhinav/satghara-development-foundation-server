@@ -52,12 +52,13 @@
             let message = 'Provide valid input';
             let status = 400;
             if (programId && videoId) {
-                const params = { videoId, programId, name };
+                const params = { videoId, programId, name, platform: '' };
                 const { response: [program] = [] } = await runDBQuery(getProgramQuery(programId));
                 if (program) {
-                    const { response: [{ url = '' } = {}] = [] } = await runDBQuery(getVideosQuery(videoId));
+                    const { response: [{ url = '', platform } = {}] = [] } = await runDBQuery(getVideosQuery(videoId));
                     if (url) {
                         params.url = url;
+                        params.platform = platform;
                         const {response: [existingMapping] = [] } = await runDBQuery(getVideoProgramMappingQuery({ ...params }));
                         if (existingMapping) {
                             const { ok } = await runDBQuery(deleteVideoProgramMappingQuery({ ...params }));
