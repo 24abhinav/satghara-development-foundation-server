@@ -168,13 +168,14 @@ const query = {
     `,
     deleteVideoQuery: (id) => `DELETE FROM YOUTUBE WHERE id=${id}`,
     getVideoProgramMappingQuery: ({ programId, videoId }) => `SELECT * FROM video_program_mapping WHERE programId=${programId} ${videoId ? `AND videoId=${videoId}` : ''}`,
-    addVideoProgramMappingQuery: ({ programId, videoId, url, name }) => `
-        INSERT INTO video_program_mapping (programId, videoId, url, createdBy) VALUES
+    addVideoProgramMappingQuery: ({ programId, videoId, url, name, platform }) => `
+        INSERT INTO video_program_mapping (programId, videoId, url, createdBy, platform) VALUES
         (
             ${programId},
             ${videoId},
             '${url}',
-            '${name}'
+            '${name}',
+            '${platform}'
         )
     `,
     deleteVideoProgramMappingQuery: ({ programId, videoId }) => `DELETE FROM video_program_mapping WHERE programId=${programId} AND videoId=${videoId}`,
