@@ -156,13 +156,14 @@ const query = {
     changeProgramImageQuery: ({ id, username, image }) => `UPDATE PROGRAMS SET modifiedBy='${username}', imageUrl='${image}' WHERE id=${id}`,
     // Youtube
     getVideosQuery: (id) => `SELECT * FROM youtube ${id && `WHERE id=${id}`}`,
-    addNewVideoQuery: ({ english, hindi, url, createdBy }) => `
-        INSERT INTO YOUTUBE (english, hindi, url, createdBy) VALUES
+    addNewVideoQuery: ({ english, hindi, url, createdBy, platform }) => `
+        INSERT INTO YOUTUBE (english, hindi, url, createdBy, platform) VALUES
         (
             '${english}',
             '${hindi}',
             '${url}',
-            '${createdBy}'
+            '${createdBy}',
+            '${platform}'
         )
     `,
     deleteVideoQuery: (id) => `DELETE FROM YOUTUBE WHERE id=${id}`,
